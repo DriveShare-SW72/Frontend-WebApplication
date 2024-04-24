@@ -4,7 +4,7 @@ import CompSignin from "@/public/components/signin.component.vue";
 
 <template>
   <header>
-    <h1>Sign Up</h1>
+    <h1>Sign In</h1>
   </header>
   <main>
     <comp-signin/>
