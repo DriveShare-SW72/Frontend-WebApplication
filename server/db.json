@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@outlook.com",
+      "password": "admin1234",
+      "phone": "123-456-7890"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@gmail.com",
+      "password": "password123",
+      "phone": "987-654-3210"
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "email": "mike@yahoo.com",
+      "password": "qwerty",
+      "phone": "555-123-4567"
+    },
+    {
+      "id": 4,
+      "name": "Emily Brown",
+      "email": "emily@hotmail.com",
+      "password": "abc123",
+      "phone": "111-222-3333"
+    },
+    {
+      "id": 5,
+      "name": "David Wilson",
+      "email": "david@gmail.com",
+      "password": "password456",
+      "phone": "444-555-6666"
+    },
+    {
+      "id": 6,
+      "name": "Sarah Davis",
+      "email": "sarah@yahoo.com",
+      "password": "pass123",
+      "phone": "777-888-9999"
+    },
+    {
+      "id": 7,
+      "name": "Michael Smith",
+      "email": "michael@gmail.com",
+      "password": "password789",
+      "phone": "222-333-4444"
+    },
+    {
+      "id": 8,
+      "name": "Jessica Johnson",
+      "email": "jessica@hotmail.com",
+      "password": "passwordabc",
+      "phone": "666-777-8888"
+    },
+    {
+      "id": 9,
+      "name": "Andrew Wilson",
+      "email": "andrew@yahoo.com",
+      "password": "pass456",
+      "phone": "999-000-1111"
+    },
+    {
+      "id": 10,
+      "name": "Olivia Davis",
+      "email": "olivia@gmail.com",
+      "password": "passwordxyz",
+      "phone": "333-444-5555"
+    }
+  ]
+}
