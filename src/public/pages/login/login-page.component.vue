@@ -1,5 +1,5 @@
 <script setup>
-import CompSignin from "@/public/components/signin.component.vue";
+import SignInComponent from "@/public/components/signin.component.vue";
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import CompSignin from "@/public/components/signin.component.vue";
     <h1>Sign In</h1>
   </header>
   <main>
-    <comp-signin/>
+    <sign-in-component/>
   </main>
 </template>
 

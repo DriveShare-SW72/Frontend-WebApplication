@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'sign-in-component'
+}
+</script>
+
 <script setup>
 import PvInputText from "primevue/inputtext";
 import PvPassword from "primevue/password";
