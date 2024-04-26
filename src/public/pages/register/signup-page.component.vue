@@ -1,5 +1,5 @@
 <script setup>
-import CompSignup from "@/public/components/signup.component.vue";
+import SignUpComponent from "@/public/components/signup.component.vue";
 </script>
 
 <template>
@@ -7,10 +7,17 @@ import CompSignup from "@/public/components/signup.component.vue";
     <h1>Sign Up</h1>
   </header>
   <main>
-    <comp-signup/>
+    <sign-up-component/>
   </main>
 </template>
 
 <style scoped>
+body {
+  background-color: #D9D9D9;
+}
 
+main {
+  display: flex;
+  justify-content: center;
+}
 </style>
