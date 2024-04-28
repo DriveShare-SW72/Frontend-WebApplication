@@ -44,7 +44,10 @@ const value2 = ref(null)
         <h3 style="margin: 0"><a style="color: black" href="">Forgot password?</a></h3>
       </div>
       <div class="form-item">
-        <p>Don't have an account yet? <a style="color: #ef6c42" href="">Sign up</a></p>
+        <p>
+          Don't have an account yet?
+          <router-link style="color: #ef6c42" to="/signup">Sign up</router-link>
+        </p>
       </div>
     </form>
   </section>
