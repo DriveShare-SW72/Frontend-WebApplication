@@ -1,5 +1,5 @@
 <script setup>
-import SignInComponent from "@/public/components/signin.component.vue";
+import SignInComponent from '@/public/components/signin.component.vue'
 </script>
 
 <template>
@@ -7,13 +7,13 @@ import SignInComponent from "@/public/components/signin.component.vue";
     <h1>Sign In</h1>
   </header>
   <main>
-    <sign-in-component/>
+    <sign-in-component />
   </main>
 </template>
 
 <style scoped>
 body {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 main {

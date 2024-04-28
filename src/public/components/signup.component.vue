@@ -5,79 +5,91 @@ export default {
 </script>
 
 <script setup>
-import PvInputText from "primevue/inputtext";
-import PvPassword from "primevue/password";
-import PvCascadeSelect from "primevue/cascadeselect"
-import PvInputNumber from "primevue/inputnumber"
-import PvCheckbox from "primevue/checkbox"
-import PvButton from "primevue/button";
-import {ref} from "vue";
+import PvInputText from 'primevue/inputtext'
+import PvPassword from 'primevue/password'
+import PvCascadeSelect from 'primevue/cascadeselect'
+import PvInputNumber from 'primevue/inputnumber'
+import PvCheckbox from 'primevue/checkbox'
+import PvButton from 'primevue/button'
+import { ref } from 'vue'
 
-const countries = ref([]);
-const value1 = ref(null);
-const value2 = ref(null);
-const value3 = ref(null);
-const confirmValue3 = ref(null);
-const value4 = ref(null);
-const value5 = ref(false);
-const value6 = ref(false);
+const countries = ref([])
+const value1 = ref(null)
+const value2 = ref(null)
+const value3 = ref(null)
+const confirmValue3 = ref(null)
+const value4 = ref(null)
+const value5 = ref(false)
+const value6 = ref(false)
 </script>
 
 <template>
-  <section class='form-container'>
+  <section class="form-container">
     <form action="" method="post">
       <div class="form-item">
         <div class="logo-container">
-          <img alt="Logo" class="logo" src="../../assets/logo.svg">
+          <img alt="Logo" class="logo" src="../../assets/logo.svg" />
         </div>
         <h1 class="title">Sign Up</h1>
       </div>
       <div class="form-item">
         <label class="label" for="fullname">Full Name</label>
-        <pv-input-text id="fullname" v-model="value1" aria-describedby="fullname-help"/>
+        <pv-input-text id="fullname" v-model="value1" aria-describedby="fullname-help" />
       </div>
       <div class="form-item">
         <label class="label" for="email">E-mail</label>
-        <pv-input-text id="email" v-model="value2" aria-describedby="email-help"/>
+        <pv-input-text id="email" v-model="value2" aria-describedby="email-help" />
       </div>
       <div class="duo-container">
         <div class="form-item">
           <label class="label" for="password">Password</label>
-          <pv-password v-model="value3" :feedback="false"
-                       inputStyle="width: 100%; background-color: #D9D9D9; color: black;"
-                       toogle-mask toogleMask/>
+          <pv-password
+            v-model="value3"
+            :feedback="false"
+            inputStyle="width: 100%; background-color: #D9D9D9; color: black;"
+            toogle-mask
+            toogleMask
+          />
         </div>
         <div class="form-item">
           <label class="label" for="password">Confirm Password</label>
-          <pv-password v-model="confirmValue3" :feedback="false"
-                       input-style="width: 100%; background-color: #D9D9D9; color: black;" toogleMask/>
+          <pv-password
+            v-model="confirmValue3"
+            :feedback="false"
+            input-style="width: 100%; background-color: #D9D9D9; color: black;"
+            toogleMask
+          />
         </div>
       </div>
       <div class="duo-container">
         <div class="form-item">
           <label class="label" for="country">Country</label>
-          <pv-cascade-select v-model="countries" id="country"/>
+          <pv-cascade-select v-model="countries" id="country" />
         </div>
         <div class="form-item">
           <label class="label" for="phone">Phone Number</label>
-          <pv-input-number v-model="value4" :useGrouping="false" inputId="withoutgrouping"
-                           inputStyle="width: 100%; background-color: #D9D9D9; color: black;"/>
+          <pv-input-number
+            v-model="value4"
+            :useGrouping="false"
+            inputId="withoutgrouping"
+            inputStyle="width: 100%; background-color: #D9D9D9; color: black;"
+          />
         </div>
       </div>
       <div class="form-item">
         <div class="conditions-container">
           <div class="condition-item">
-            <pv-checkbox class="checkbox" v-model="value5" inputId="condition1" :binary="true"/>
+            <pv-checkbox class="checkbox" v-model="value5" inputId="condition1" :binary="true" />
             <label for="condition1">I want to receive news from EzPark via email</label>
           </div>
           <div class="condition-item">
-            <pv-checkbox class="checkbox" v-model="value6" inputId="condition1" :binary="true"/>
+            <pv-checkbox class="checkbox" v-model="value6" inputId="condition1" :binary="true" />
             <label for="condition2">I have read and agree with the Privacy Policy</label>
           </div>
         </div>
       </div>
       <div class="form-item">
-        <pv-button id="submit" label="Sign Up"/>
+        <pv-button id="submit" label="Sign Up" />
       </div>
       <div class="form-item">
         <p>Already have an account? <a href="">Sign in</a></p>
@@ -92,7 +104,7 @@ const value6 = ref(false);
 
 a {
   text-decoration: none;
-  color: #EF6C42;
+  color: #ef6c42;
 }
 
 form {
@@ -100,7 +112,7 @@ form {
   align-items: center;
   background-color: white;
   flex-direction: column;
-  font-family: "Mulish", "Inter var", sans-serif;
+  font-family: 'Mulish', 'Inter var', sans-serif;
   padding: 20px;
   width: 500px;
   border-radius: 20px;
@@ -114,7 +126,6 @@ form {
 .logo {
   width: 160px;
 }
-
 
 .form-item {
   display: flex;
@@ -139,11 +150,13 @@ form {
 .label {
   display: inline-block;
 
-  width: 100%
+  width: 100%;
 }
 
-#email, #fullname, #country {
-  background-color: #D9D9D9;
+#email,
+#fullname,
+#country {
+  background-color: #d9d9d9;
   color: black;
   width: 100%;
 }
@@ -169,9 +182,8 @@ form {
 
 #submit {
   width: 100%;
-  font-family: "Mulish", "Inter var", sans-serif;
-  background-color: #EF6C42;
-  border: #D9D9D9 solid 2px;
+  font-family: 'Mulish', 'Inter var', sans-serif;
+  background-color: #ef6c42;
+  border: #d9d9d9 solid 2px;
 }
-
 </style>

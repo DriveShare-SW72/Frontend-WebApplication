@@ -1,5 +1,5 @@
 <script setup>
-import SignUpComponent from "@/public/components/signup.component.vue";
+import SignUpComponent from '@/public/components/signup.component.vue'
 </script>
 
 <template>
@@ -7,13 +7,13 @@ import SignUpComponent from "@/public/components/signup.component.vue";
     <h1>Sign Up</h1>
   </header>
   <main>
-    <sign-up-component/>
+    <sign-up-component />
   </main>
 </template>
 
 <style scoped>
 body {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 main {
