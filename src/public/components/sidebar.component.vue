@@ -64,7 +64,6 @@ const visible = ref(false)
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 .sidebar-item {
   font-family: 'Rubik', 'Inter var', sans-serif;
 }
