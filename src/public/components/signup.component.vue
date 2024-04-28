@@ -25,54 +25,53 @@ const value6 = ref(false)
 
 <template>
   <section class="form-container">
-    <form action="" method="post">
+    <form class="form" method="post">
       <div class="form-item">
         <div class="logo-container">
           <img alt="Logo" class="logo" src="../../assets/logo.svg" />
         </div>
-        <h1 class="title">Sign Up</h1>
+        <h1 class="form-title">Sign Up</h1>
       </div>
       <div class="form-item">
-        <label class="label" for="fullname">Full Name</label>
-        <pv-input-text id="fullname" v-model="value1" aria-describedby="fullname-help" />
+        <label class="form-label" for="fullname">Full Name</label>
+        <pv-input-text
+          id="fullname"
+          class="form-input"
+          v-model="value1"
+          aria-describedby="fullname-help"
+        />
       </div>
       <div class="form-item">
-        <label class="label" for="email">E-mail</label>
-        <pv-input-text id="email" v-model="value2" aria-describedby="email-help" />
+        <label class="form-label" for="email">E-mail</label>
+        <pv-input-text
+          id="email"
+          class="form-input"
+          v-model="value2"
+          aria-describedby="email-help"
+        />
       </div>
       <div class="duo-container">
         <div class="form-item">
-          <label class="label" for="password">Password</label>
-          <pv-password
-            v-model="value3"
-            :feedback="false"
-            inputStyle="width: 100%; background-color: #D9D9D9; color: black;"
-            toogle-mask
-            toogleMask
-          />
+          <label class="form-label" for="password">Password</label>
+          <pv-password class="form-input" v-model="value3" :feedback="false" toggleMask />
         </div>
         <div class="form-item">
-          <label class="label" for="password">Confirm Password</label>
-          <pv-password
-            v-model="confirmValue3"
-            :feedback="false"
-            input-style="width: 100%; background-color: #D9D9D9; color: black;"
-            toogleMask
-          />
+          <label class="form-label" for="password">Confirm Password</label>
+          <pv-password class="form-input" v-model="confirmValue3" :feedback="false" toggleMask />
         </div>
       </div>
       <div class="duo-container">
         <div class="form-item">
-          <label class="label" for="country">Country</label>
-          <pv-cascade-select v-model="countries" id="country" />
+          <label class="form-label" for="country">Country</label>
+          <pv-cascade-select id="country" class="form-select" v-model="countries" />
         </div>
         <div class="form-item">
-          <label class="label" for="phone">Phone Number</label>
+          <label class="form-label" for="phone">Phone Number</label>
           <pv-input-number
+            class="form-input"
             v-model="value4"
             :useGrouping="false"
             inputId="withoutgrouping"
-            inputStyle="width: 100%; background-color: #D9D9D9; color: black;"
           />
         </div>
       </div>
@@ -89,11 +88,11 @@ const value6 = ref(false)
         </div>
       </div>
       <div class="form-item">
-        <pv-button id="submit" label="Sign Up" />
+        <pv-button id="submit" class="form-btn" label="Sign Up" />
       </div>
-      <div class="form-item">
-        <p>Already have an account? <router-link to="/login">Sign in</router-link></p>
-      </div>
+      <p class="login-link">
+        Already have an account? <router-link to="/login">Sign in</router-link>
+      </p>
     </form>
   </section>
 </template>
@@ -104,22 +103,27 @@ a {
   color: #ef6c42;
 }
 
-form {
+.form {
   display: flex;
   align-items: center;
   background-color: white;
   flex-direction: column;
   font-family: 'Mulish', 'Inter var', sans-serif;
+
   padding: 20px;
   width: 500px;
   border-radius: 20px;
 }
 
-.title {
-  color: black;
-  margin: 10px 0 0 0;
-}
+.form-title {
+  font-family: 'Rubik', sans-serif;
+  color: #212529;
+  margin-block: 0.75rem 0;
+  font-size: 1.75rem;
 
+  font-weight: 700;
+  line-height: 1.2;
+}
 .logo {
   width: 160px;
 }
@@ -144,18 +148,30 @@ form {
   width: 80%;
 }
 
-.label {
-  display: inline-block;
+.form-label {
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
 
+.form-input {
   width: 100%;
 }
 
-#email,
-#fullname,
-#country {
-  background-color: #d9d9d9;
-  color: black;
+.form-input :deep(.p-inputtext),
+.form-input.p-inputtext,
+.form-select {
   width: 100%;
+  background-color: #f7f7f7;
+  color: #000;
+}
+.form-input :deep(.p-inputtext):focus,
+.form-input.p-inputtext:focus {
+  outline: 2px solid #ef6c42;
+}
+.form-select {
+  outline-color: #ef6c42;
+  outline-width: 2px;
 }
 
 .conditions-container {
@@ -177,10 +193,18 @@ form {
   color: red;
 }
 
-#submit {
+.form-btn {
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  background: #000;
+  padding-block: 0.625rem;
   width: 100%;
-  font-family: 'Mulish', 'Inter var', sans-serif;
-  background-color: #ef6c42;
-  border: #d9d9d9 solid 2px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }
 </style>

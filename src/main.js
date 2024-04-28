@@ -1,5 +1,5 @@
 import './assets/main.css'
-import 'primevue/resources/themes/aura-dark-teal/theme.css'
+import 'primevue/resources/themes/aura-light-blue/theme.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
