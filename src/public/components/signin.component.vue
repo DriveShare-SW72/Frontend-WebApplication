@@ -10,55 +10,52 @@ import PvPassword from 'primevue/password'
 import PvButton from 'primevue/button'
 import { ref } from 'vue'
 
-const value1 = ref(null)
-const value2 = ref(null)
+const emailValue = ref(null)
+const passwordValue = ref(null)
 </script>
 
 <template>
   <section class="form-container">
-    <form action="" method="get">
+    <form class="form">
       <div class="form-item">
         <div class="logo-container">
           <img alt="Logo" class="logo" src="../../assets/logo.svg" />
         </div>
-        <h1 class="title">Sign In</h1>
+        <h1 class="form-title">Sign In</h1>
       </div>
       <div class="form-item">
-        <label class="label" for="email">E-mail</label>
-        <pv-input-text id="email" v-model="value1" aria-describedby="email-help" />
-      </div>
-      <div class="form-item">
-        <label class="label" for="password">Password</label>
-        <pv-password
-          id="password"
-          v-model="value2"
-          :feedback="false"
-          input-style="width: 100%; background-color: #D9D9D9; color: black;"
-          toogleMask
+        <label class="form-label" for="email">E-mail</label>
+        <pv-input-text
+          id="email"
+          class="form-input"
+          v-model="emailValue"
+          aria-describedby="email-help"
         />
       </div>
       <div class="form-item">
-        <pv-button id="submit" label="Login" />
-      </div>
-      <div class="forget-password">
-        <h3 style="margin: 0"><a style="color: black" href="">Forgot password?</a></h3>
+        <label class="form-label" for="password">Password</label>
+        <pv-password
+          id="password"
+          class="form-input"
+          v-model="passwordValue"
+          :feedback="false"
+          toggleMask
+        />
       </div>
       <div class="form-item">
-        <p>
-          Don't have an account yet?
-          <router-link style="color: #ef6c42" to="/signup">Sign up</router-link>
-        </p>
+        <pv-button class="form-btn" id="submit" label="Login" />
       </div>
+      <router-link class="forgot-password-link" to="/recovery">Forgot password?</router-link>
+      <p class="signup-link">
+        Don't have an account yet?
+        <router-link to="/signup">Sign up</router-link>
+      </p>
     </form>
   </section>
 </template>
 
 <style scoped>
-a {
-  text-decoration: none;
-}
-
-form {
+.form {
   display: flex;
   align-items: center;
   background-color: white;
@@ -70,9 +67,14 @@ form {
   border-radius: 20px;
 }
 
-.title {
-  color: black;
-  margin: 10px 0 0 0;
+.form-title {
+  font-family: 'Rubik', sans-serif;
+  color: #212529;
+  margin-block: 0.75rem 0;
+  font-size: 1.75rem;
+
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .logo {
@@ -85,36 +87,72 @@ form {
   align-items: center;
   font-family: inherit;
 
+  width: 80%;
+}
+
+.form .form-item:not(:last-of-type) {
   margin-bottom: 20px;
-  color: black;
+}
+
+.form-label {
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.form-input :deep(.p-inputtext),
+.form-input.p-inputtext {
+  width: 100%;
+  background-color: #f7f7f7;
+  color: #000;
+}
+.form-input :deep(.p-inputtext):focus,
+.form-input.p-inputtext:focus {
+  outline: 2px solid #ef6c42;
+}
+
+.forgot-password-link {
+  font-family: 'Rubik', sans-serif;
+  display: block;
   width: 80%;
+  text-align: end;
+  margin-top: 12px;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.forgot-password-link:hover {
+  text-decoration: underline;
 }
 
-.label {
-  display: inline-block;
-
-  width: 100%;
-}
-
-#email,
-#password {
-  background-color: #d9d9d9;
-  color: black;
-  width: 100%;
-}
-
-.forget-password {
-  display: inherit;
-  justify-content: flex-end;
-  font-family: inherit;
-
+.signup-link {
+  display: block;
   width: 80%;
+  text-align: center;
+  margin-block: 2.5rem 0.25rem;
+}
+.signup-link a {
+  color: #ef6c42;
+  text-decoration: none;
+}
+.signup-link a:hover {
+  text-decoration: underline;
 }
 
-#submit {
+.form-btn {
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  background: #000;
+  padding-block: 0.625rem;
   width: 100%;
-  font-family: inherit;
-  background-color: #ef6c42;
-  border: #d9d9d9 solid 2px;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 </style>

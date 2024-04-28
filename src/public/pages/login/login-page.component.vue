@@ -3,21 +3,18 @@ import SignInComponent from '@/public/components/signin.component.vue'
 </script>
 
 <template>
-  <header>
-    <h1>Sign In</h1>
-  </header>
   <main>
     <sign-in-component />
   </main>
 </template>
 
 <style scoped>
-body {
-  background-color: #d9d9d9;
-}
-
 main {
   display: flex;
+  width: 100%;
+  min-height: 100vh;
   justify-content: center;
+  align-items: center;
+  background: #1e2733;
 }
 </style>
