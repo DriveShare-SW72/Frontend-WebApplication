@@ -3,6 +3,7 @@ import LogInPage from '@/public/pages/login/login-page.component.vue'
 import SignUpPage from '@/public/pages/register/signup-page.component.vue'
 import RecoveryPage from '@/auth/pages/recovery.page.vue'
 import FindYourParkPage from '@/public/pages/find-your-park.page.vue'
+import ParkingDetailPage from '@/parkings/pages/parking-detail.page.vue'
 import RegisterPark from '@/public/pages/register-park.page.vue'
 
 const router = createRouter({
@@ -23,6 +24,10 @@ const router = createRouter({
     {
       path: '/find-your-park',
       component: FindYourParkPage
+    },
+    {
+      path: '/find-your-park/parking/:id',
+      component: ParkingDetailPage
     },
     {
       path: '/register-park',

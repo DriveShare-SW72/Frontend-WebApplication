@@ -5,14 +5,34 @@ export default {
 </script>
 
 <script setup>
+const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
+const MAP_DEFAULT_ZOOM = 18
+
+import ParkingApiService from '@/parkings/services/parkingApi.service'
 import VBaseLayout from '@/public/layout/base.layout.vue'
+import VGoogleMap from '../components/google-map.component.vue'
 import VInputText from 'primevue/inputtext'
 import VSlider from 'primevue/slider'
 import VButton from 'primevue/button'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const parkingService = new ParkingApiService()
 
 const address = ref('')
 const priceRange = ref([0, 100])
+const router = useRouter()
+
+const locations = ref([])
+
+parkingService
+  .getParkingsLocations()
+  .then((data) => (locations.value = data))
+  .catch(console.error)
+
+function handleMarkerClick(marker) {
+  router.push(`/find-your-park/parking/${marker.id}`)
+}
 </script>
 <template>
   <v-base-layout>
@@ -35,7 +55,12 @@ const priceRange = ref([0, 100])
       </form>
     </div>
     <div class="map-container">
-      <div class="map"></div>
+      <v-google-map
+        :center="MAP_DEFAULT_CENTER"
+        :zoom="MAP_DEFAULT_ZOOM"
+        :markers="locations"
+        @clickMarker="handleMarkerClick"
+      />
     </div>
   </v-base-layout>
 </template>

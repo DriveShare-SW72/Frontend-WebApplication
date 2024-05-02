@@ -272,5 +272,27 @@
       "price_per_hour": 17.5,
       "description": "Multi-level parking structure with 25 spaces available"
     }
+  ],
+  "parkings-locations": [
+    { "id": 1, "lat": -12.1061161, "lng": -77.029217, "parking_id": 1 },
+    { "id": 2, "lat": -12.1067486, "lng": -77.0222729, "parking_id": 2 },
+    { "id": 3, "lat": -12.1050827, "lng": -77.01047, "parking_id": 3 },
+    { "id": 4, "lat": -12.1181284, "lng": -77.0095936, "parking_id": 4 },
+    { "id": 5, "lat": -12.0590779, "lng": -77.0449137, "parking_id": 5 },
+    { "id": 6, "lat": -12.0572243, "lng": -77.0402172, "parking_id": 6 },
+    { "id": 7, "lat": -12.0463731, "lng": -77.0369274, "parking_id": 7 },
+    { "id": 8, "lat": -12.0558897, "lng": -77.0369274, "parking_id": 8 },
+    { "id": 9, "lat": -12.0640885, "lng": -77.0303117, "parking_id": 9 },
+    { "id": 10, "lat": -12.0739478, "lng": -77.0283337, "parking_id": 10 },
+    { "id": 11, "lat": -12.0901234, "lng": -77.0256789, "parking_id": 11 },
+    { "id": 12, "lat": -12.0854321, "lng": -77.0354321, "parking_id": 12 },
+    { "id": 13, "lat": -12.0809876, "lng": -77.0456789, "parking_id": 13 },
+    { "id": 14, "lat": -12.0754321, "lng": -77.0554321, "parking_id": 14 },
+    { "id": 15, "lat": -12.0709876, "lng": -77.0656789, "parking_id": 15 },
+    { "id": 16, "lat": -12.0654321, "lng": -77.0754321, "parking_id": 16 },
+    { "id": 17, "lat": -12.0609876, "lng": -77.0856789, "parking_id": 17 },
+    { "id": 18, "lat": -12.0554321, "lng": -77.0954321, "parking_id": 18 },
+    { "id": 19, "lat": -12.0509876, "lng": -77.1056789, "parking_id": 19 },
+    { "id": 20, "lat": -12.0454321, "lng": -77.1154321, "parking_id": 20 }
   ]
 }
