@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'base-layout'
+  name: 'v-base-layout'
 }
 </script>
 
@@ -14,6 +14,7 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
       <sidebar-component />
     </div>
     <div class="view-container">
+      <h1 class="view-container-title">Ez Park</h1>
       <slot />
     </div>
   </main>
@@ -28,5 +29,13 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
 .view-container {
   width: 100%;
   padding-block: 1.5rem;
+  padding-inline: 3.5rem;
+}
+.view-container-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  text-align: center;
 }
 </style>

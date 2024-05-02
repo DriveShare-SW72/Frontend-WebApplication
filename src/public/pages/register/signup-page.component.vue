@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'sign-up-page'
+}
+</script>
+
 <script setup>
 import SignUpComponent from '@/public/components/signup.component.vue'
 </script>

@@ -1,12 +1,11 @@
-<script scoped>
-import RecoveryFormComponent from '../components/recovery-form.component.vue'
-
+<script>
 export default {
   name: 'recovery-page',
-  components: {
-    RecoveryFormComponent
-  }
 }
+</script>
+
+<script setup>
+import RecoveryFormComponent from '../components/recovery-form.component.vue'
 </script>
 
 <template>
