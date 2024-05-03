@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup>
-import VHeader from '../modules/header.module.vue'
+import VHeader from '../components/header.component.vue'
 import VHero from '../modules/hero.module.vue'
 import VProduct from '../modules/product.module.vue'
 import VFeatures from '../modules/features.module.vue'
@@ -28,6 +28,9 @@ import VFooter from '../components/footer.component.vue'
 </template>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --color-primary-100: #d8dce1;
   --color-primary-200: #bec4cc;
@@ -120,5 +123,11 @@ import VFooter from '../components/footer.component.vue'
 .container {
   max-width: 1200px;
   margin-inline: auto;
+}
+</style>
+
+<style scoped>
+main {
+  padding-top: 80px;
 }
 </style>

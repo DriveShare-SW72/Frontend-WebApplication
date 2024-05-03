@@ -22,7 +22,9 @@ import HeroIllustration from '@/assets/svg/hero-illustration.svg?component'
           <h2 class="font-rubik hero-subtitle">
             Encuentra fácilmente estacionamiento desde la comodidad de tu dispositivo
           </h2>
-          <v-button>Conocer más</v-button>
+          <router-link to="/login">
+            <v-button>Conocer más</v-button>
+          </router-link>
         </div>
         <div class="hero-container--right">
           <div class="hero-container--right-bg">

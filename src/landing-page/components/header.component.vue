@@ -5,8 +5,8 @@ export default {
 </script>
 
 <script setup>
-import VButton from '../components/button.component.vue'
-import VLogo from '../components/logo.component.vue'
+import VButton from './button.component.vue'
+import VLogo from './logo.component.vue'
 const navlinks = [
   {
     title: 'Producto',
@@ -45,8 +45,10 @@ const navlinks = [
         </ul>
         <div class="divider"></div>
         <div class="navbar--right__auth">
-          <a href="#" class="navlink register">Registrar</a>
-          <v-button>Iniciar Sesión</v-button>
+          <router-link class="navlink register" to="/signup"> Registrar </router-link>
+          <router-link to="/login">
+            <v-button>Iniciar Sesión</v-button>
+          </router-link>
         </div>
       </div>
     </nav>
@@ -55,6 +57,11 @@ const navlinks = [
 <style scoped>
 .header {
   padding-inline: 48px;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 90;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 .navbar {
   display: flex;
