@@ -32,7 +32,7 @@ class ParkingApiService {
     } catch (err) {
       console.error(err)
     }
-  }
+
 
   async getParkingsLocations() {
     try {

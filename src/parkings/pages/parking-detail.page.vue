@@ -4,12 +4,11 @@ import PvCarousel from 'primevue/carousel'
 import PvFieldset from 'primevue/fieldset'
 import PvButton from 'primevue/button'
 import { useRoute } from 'vue-router'
-import ParkingApiService from "@/parkings/services/parkingApi.service.js";
-import {ref} from "vue";
+import ParkingApiService from '../services/parkingApi.service'
 
 const route = useRoute()
 const parkingId = route.params.id
-const parking = ref(null)
+const parkingService = new ParkingApiService()
 
 console.log(parkingId)
 

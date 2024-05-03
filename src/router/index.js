@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from '@/landing-page/pages/index.page.vue'
 import LogInPage from '@/public/pages/login/login-page.component.vue'
 import SignUpPage from '@/public/pages/register/signup-page.component.vue'
 import RecoveryPage from '@/auth/pages/recovery.page.vue'
@@ -9,6 +10,10 @@ import RegisterPark from '@/public/pages/register-park.page.vue'
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: '/',
+      component: LandingPage
+    },
     {
       path: '/login',
       component: LogInPage

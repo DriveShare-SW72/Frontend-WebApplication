@@ -1,7 +1,62 @@
 <script>
+import { AuthService } from '@/auth/services/auth.service.js'
+
+
 export default {
-  name: 'sign-up-component'
+  name: 'sign-up-component',
+  data(){
+    return{
+      country:'',
+      fullname:'',
+      email:'',
+      password:'',
+      confirmPassword:'',
+      phoneNumber:'',
+      newsCheck:'',
+      privacyCheck:'',
+      authService: new AuthService()
+    }
+  },
+
+  created() {
+
+  },
+
+  methods:{
+    register(event){
+      event.preventDefault()
+      this.authService.signUp(
+        this.fullname,
+        this.password,
+        this.email,
+        this.country,
+        this.phoneNumber,
+        this.newsCheck,
+        this.privacyCheck
+
+      ).then(() => {
+        this.$toast.add({
+          severity: "success",
+          summary: "Success",
+          detail: "Redirecting to login...",
+          life: 2000
+        });
+        setTimeout(() => {
+          this.$router.push("/login");
+        }, 2000);
+      }).catch(() => {
+        this.$toast.add({
+          severity: "error",
+          summary: "Error",
+          detail: "Error while registering user. Please try again.",
+          life: 1000
+        });
+      })
+
+      }
+  }
 }
+
 </script>
 
 <script setup>
@@ -11,21 +66,12 @@ import PvCascadeSelect from 'primevue/cascadeselect'
 import PvInputNumber from 'primevue/inputnumber'
 import PvCheckbox from 'primevue/checkbox'
 import PvButton from 'primevue/button'
-import { ref } from 'vue'
 
-const countries = ref([])
-const value1 = ref(null)
-const value2 = ref(null)
-const value3 = ref(null)
-const confirmValue3 = ref(null)
-const value4 = ref(null)
-const value5 = ref(false)
-const value6 = ref(false)
 </script>
 
 <template>
   <section class="form-container">
-    <form class="form" method="post">
+    <form class="form" v-on:submit="register($event)" >
       <div class="form-item">
         <div class="logo-container">
           <img alt="Logo" class="logo" src="../../assets/logo.svg" />
@@ -37,7 +83,7 @@ const value6 = ref(false)
         <pv-input-text
           id="fullname"
           class="form-input"
-          v-model="value1"
+          v-model="fullname"
           aria-describedby="fullname-help"
         />
       </div>
@@ -46,30 +92,30 @@ const value6 = ref(false)
         <pv-input-text
           id="email"
           class="form-input"
-          v-model="value2"
+          v-model="email"
           aria-describedby="email-help"
         />
       </div>
       <div class="duo-container">
         <div class="form-item">
           <label class="form-label" for="password">Password</label>
-          <pv-password class="form-input" v-model="value3" :feedback="false" toggleMask />
+          <pv-password class="form-input" v-model="password" :feedback="false" toggleMask />
         </div>
         <div class="form-item">
           <label class="form-label" for="password">Confirm Password</label>
-          <pv-password class="form-input" v-model="confirmValue3" :feedback="false" toggleMask />
+          <pv-password class="form-input" v-model="confirmPassword" :feedback="false" toggleMask />
         </div>
       </div>
       <div class="duo-container">
         <div class="form-item">
           <label class="form-label" for="country">Country</label>
-          <pv-cascade-select id="country" class="form-select" v-model="countries" />
+          <pv-cascade-select id="country" class="form-select" v-model="country" />
         </div>
         <div class="form-item">
           <label class="form-label" for="phone">Phone Number</label>
           <pv-input-number
             class="form-input"
-            v-model="value4"
+            v-model="phoneNumber"
             :useGrouping="false"
             inputId="withoutgrouping"
           />
@@ -78,17 +124,17 @@ const value6 = ref(false)
       <div class="form-item">
         <div class="conditions-container">
           <div class="condition-item">
-            <pv-checkbox class="checkbox" v-model="value5" inputId="condition1" :binary="true" />
+            <pv-checkbox class="checkbox" v-model="newsCheck" inputId="condition1" :binary="true" />
             <label for="condition1">I want to receive news from EzPark via email</label>
           </div>
           <div class="condition-item">
-            <pv-checkbox class="checkbox" v-model="value6" inputId="condition1" :binary="true" />
+            <pv-checkbox class="checkbox" v-model="privacyCheck" inputId="condition1" :binary="true" />
             <label for="condition2">I have read and agree with the Privacy Policy</label>
           </div>
         </div>
       </div>
       <div class="form-item">
-        <pv-button id="submit" class="form-btn" label="Sign Up" />
+        <pv-button id="submit" type="submit" class="form-btn" label="Sign Up" />
       </div>
       <p class="login-link">
         Already have an account? <router-link to="/login">Sign in</router-link>

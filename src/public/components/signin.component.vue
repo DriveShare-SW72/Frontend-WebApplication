@@ -1,4 +1,6 @@
 <script>
+import { AuthService } from '@/auth/services/auth.service.js'
+
 export default {
   name: 'sign-in-component'
 }
@@ -11,8 +13,6 @@ import PvPassword from 'primevue/password'
 import PvButton from 'primevue/button'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const oauthGoogleProvider = new GoogleAuthProvider()
 oauthGoogleProvider.initialize()
@@ -37,17 +37,36 @@ oauthGoogleProvider.onSignIn((user, accessToken) => {
     .then(() => setTimeout(() => router.push('/find-your-park'), 1500))
     .catch(console.error)
 })
+const googleSignInBtn = ref(null)
 
 onMounted(() => oauthGoogleProvider.renderButton(googleSignInBtn.value, 'outline', 368))
 
-const emailValue = ref(null)
-const passwordValue = ref(null)
-const googleSignInBtn = ref(null)
+const router = useRouter()
+
+const authService = new AuthService()
+const email = ref('')
+const password = ref('')
+const error = ref('')
+
+async function handleLogin() {
+  try {
+    await authService.signIn(email.value, password.value)
+
+    error.value = ''
+
+    setTimeout(() => {
+      router.push('/find-your-park')
+    }, 1000)
+  } catch (err) {
+    error.value = 'User not found. Please check your credentials.'
+    console.error('Error logging in:', err)
+  }
+}
 </script>
 
 <template>
   <section class="form-container">
-    <form class="form">
+    <form class="form" @submit.prevent="handleLogin()">
       <div class="form-item">
         <div class="logo-container">
           <img alt="Logo" class="logo" src="../../assets/logo.svg" />
@@ -59,7 +78,7 @@ const googleSignInBtn = ref(null)
         <pv-input-text
           id="email"
           class="form-input"
-          v-model="emailValue"
+          v-model="email"
           aria-describedby="email-help"
         />
       </div>
@@ -68,13 +87,14 @@ const googleSignInBtn = ref(null)
         <pv-password
           id="password"
           class="form-input"
-          v-model="passwordValue"
+          v-model="password"
           :feedback="false"
           toggleMask
         />
       </div>
+      <div v-if="error">{{ error }}</div>
       <div class="form-item">
-        <pv-button class="form-btn" id="submit" label="Login" />
+        <pv-button class="form-btn" type="submit" id="submit" label="Login" />
       </div>
       <div ref="googleSignInBtn">mi botón</div>
       <router-link class="forgot-password-link" to="/recovery">Forgot password?</router-link>
