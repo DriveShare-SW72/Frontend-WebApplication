@@ -5,7 +5,7 @@ class ParkingApiService {
   axiosInstance
 
   constructor() {
-    const BASE_URL = 'http://localhost:3000'
+    const BASE_URL = 'http://localhost:3000/api/v1'
 
     this.axiosInstance = axios.create({
       baseURL: BASE_URL,
@@ -19,7 +19,6 @@ class ParkingApiService {
   async getParkings() {
     try {
       const response = await this.axiosInstance.get('/parkings')
-
       return response.data
     } catch (err) {
       console.error(err)

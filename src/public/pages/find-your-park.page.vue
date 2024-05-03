@@ -10,20 +10,20 @@ const MAP_DEFAULT_ZOOM = 18
 
 import ParkingApiService from '@/parkings/services/parkingApi.service'
 import VBaseLayout from '@/public/layout/base.layout.vue'
-import VGoogleMap from '../components/google-map.component.vue'
-import VInputText from 'primevue/inputtext'
-import VSlider from 'primevue/slider'
-import VButton from 'primevue/button'
+import VGoogleMap from '@/public/components/google-map.component.vue'
+import VGoogleAutocomplete from '@/public/components/google-autocomplete.component.vue'
+import PvSlider from 'primevue/slider'
+import PvButton from 'primevue/button'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const parkingService = new ParkingApiService()
 
-const address = ref('')
 const priceRange = ref([0, 100])
-const router = useRouter()
-
 const locations = ref([])
+const router = useRouter()
+/** @type {import('vue').Ref<google.maps.Map>} */
+const map = ref(null)
 
 parkingService
   .getParkingsLocations()
@@ -33,15 +33,22 @@ parkingService
 function handleMarkerClick(marker) {
   router.push(`/find-your-park/parking/${marker.id}`)
 }
+
+/** @param {google.maps.places.PlaceResult} place */
+function handleAutocompletePlaceChanged(place) {
+  const { location } = place.geometry
+  if (!location) return
+  map.value.panTo(location)
+  map.value.setZoom(18)
+}
 </script>
 <template>
   <v-base-layout>
     <div class="search-container">
-      <form class="search-form">
-        <v-input-text
-          v-model:model-value="address"
+      <form class="search-form" @submit.prevent>
+        <v-google-autocomplete
           class="search-input"
-          placeholder="Search in a specific address..."
+          @placeChanged="handleAutocompletePlaceChanged"
         />
         <div class="search-filter-price">
           <span class="search-filter-price-label">Filter by price</span>
@@ -49,9 +56,9 @@ function handleMarkerClick(marker) {
             <span class="search-filter-min-price">S/ {{ priceRange[0] }}</span>
             <span class="search-filter-max-price">S/ {{ priceRange[1] }}</span>
           </div>
-          <v-slider range v-model="priceRange" class="search-filter-slider" />
+          <pv-slider range v-model="priceRange" class="search-filter-slider" />
         </div>
-        <v-button label="History" class="search-btn-history" icon="pi pi-history" />
+        <pv-button label="History" class="search-btn-history" icon="pi pi-history" />
       </form>
     </div>
     <div class="map-container">
@@ -60,6 +67,7 @@ function handleMarkerClick(marker) {
         :zoom="MAP_DEFAULT_ZOOM"
         :markers="locations"
         @clickMarker="handleMarkerClick"
+        v-model:map="map"
       />
     </div>
   </v-base-layout>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 
+const mapObj = defineModel('map', { type: [Object, null], required: true })
 const emits = defineEmits(['clickMarker'])
 const props = defineProps({
   center: {
@@ -19,7 +20,6 @@ const props = defineProps({
 })
 
 const mapRef = ref(null)
-const mapObj = ref(null)
 
 async function renderMarkers(map) {
   try {
@@ -54,7 +54,6 @@ async function initMap() {
       streetViewControl: false,
       fullscreenControl: false
     })
-
     mapObj.value = map
 
     renderMarkers(map)
