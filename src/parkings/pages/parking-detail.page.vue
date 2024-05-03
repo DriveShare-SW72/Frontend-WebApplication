@@ -3,12 +3,14 @@ import VBaseLayout from '@/public/layout/base.layout.vue'
 import PvCarousel from 'primevue/carousel'
 import PvFieldset from 'primevue/fieldset'
 import PvButton from 'primevue/button'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import ParkingApiService from '../services/parkingApi.service'
 
 const route = useRoute()
 const parkingId = route.params.id
 const parkingService = new ParkingApiService()
+const parking = ref(null)
 
 console.log(parkingId)
 
@@ -51,15 +53,14 @@ const parkingImages = [
   }
 ]
 
-const parkingService = new ParkingApiService();
 parkingService
-    .getParkingsById(parkingId)
-    .then((data) => {
-      parking.value = data[0]
+  .getParkingsById(parkingId)
+  .then((data) => {
+    parking.value = data[0]
 
-      console.log(data)
-    })
-    .catch(console.error)
+    console.log(data)
+  })
+  .catch(console.error)
 
 console.log(parking.value)
 </script>
@@ -67,7 +68,9 @@ console.log(parking.value)
 <template>
   <v-base-layout>
     <section v-if="parking" class="parking-detail-section">
-      <h2 class="parking-detail-address">{{parking.address}} {{parking.number}}, {{parking.city}}</h2>
+      <h2 class="parking-detail-address">
+        {{ parking.address }} {{ parking.number }}, {{ parking.city }}
+      </h2>
       <pv-carousel
         :value="parkingImages"
         :num-visible="3"
@@ -82,18 +85,20 @@ console.log(parking.value)
         </template>
       </pv-carousel>
       <div class="parking-info-container">
-        <pv-fieldset legend="Description" class="parking-description-fieldset">{{parking.description}}</pv-fieldset>
+        <pv-fieldset legend="Description" class="parking-description-fieldset">{{
+          parking.description
+        }}</pv-fieldset>
         <div class="parking-cta-container">
           <pv-button class="parking-reviews-btn">
             <span class="parking-review-btn-label">Ratings & Reviews &rarr;</span>
-            <span class="parking-reviews-btn-rate">{{parking.rating}}/5</span>
+            <span class="parking-reviews-btn-rate">{{ parking.rating }}/5</span>
           </pv-button>
-          <p class="parking-fare">Price: S/. {{parking.price_per_hour}} / hour</p>
+          <p class="parking-fare">Price: S/. {{ parking.price_per_hour }} / hour</p>
           <pv-button label="Reserve now" class="parking-reserve-btn" severity="contrast" />
         </div>
       </div>
     </section>
-    <p v-else>The park with ID: {{parkingId}} does not exist.</p>
+    <p v-else>The park with ID: {{ parkingId }} does not exist.</p>
   </v-base-layout>
 </template>
 
