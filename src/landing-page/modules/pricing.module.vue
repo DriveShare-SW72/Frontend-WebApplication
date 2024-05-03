@@ -207,7 +207,8 @@ export default {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 48px;
+  padding: 0;
 }
 .pricing-summary-item {
   display: flex;
@@ -226,6 +227,30 @@ export default {
 }
 .pricing-summary-item__info .subtitle-2 {
   color: var(--color-primary-500);
-  margin-bottom: 4px;
+  margin-block: 0 8px;
+}
+.pricing-summary-item__info .body-2 {
+  margin: 0;
+}
+
+@media screen and (max-width: 1080px) {
+  .pricing-description {
+    margin-bottom: 36px;
+  }
+  .pricing-summary {
+    gap: 36px;
+    align-items: center;
+  }
+  .pricing-summary-item__icon {
+    width: 56px;
+    height: 56px;
+  }
+  .pricing-summary-item__icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .pricing-summary-item__info .subtitle-2 {
+    margin-bottom: 4px;
+  }
 }
 </style>

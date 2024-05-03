@@ -123,4 +123,36 @@ import VCard from '../components/card.component.vue'
   gap: 16px;
   height: 100%;
 }
+
+@media screen and (max-width: 1080px) {
+  .product-benefit {
+    margin-bottom: 8px;
+  }
+  .product-description {
+    margin-block: 0;
+  }
+  .product-section-summary {
+    margin-bottom: 36px;
+  }
+  .product-section-benefits {
+    gap: 16px;
+  }
+  .product-benefit {
+    gap: 16px;
+    margin: 0;
+  }
+  .product-benefit-icon {
+    display: flex;
+    width: 36px;
+    height: 36px;
+  }
+  .product-benefit-icon svg {
+    width: inherit;
+    height: inherit;
+  }
+  .product-benefit p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
 </style>

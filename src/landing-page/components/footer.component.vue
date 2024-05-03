@@ -14,18 +14,18 @@ import InstagramIcon from '@/assets/svg/instagram.svg?component'
 <template>
   <footer class="footer">
     <div class="footer__container--left">
-      <logo-icon />
+      <logo-icon viewBox="0 0 167 52" class="footer-logo" />
       <span class="copyright"> &copy;2024 EzPark. Todos los derechos reservados </span>
     </div>
     <div class="footer__container--right">
       <a href="#" class="rrss">
-        <facebook-icon />
+        <facebook-icon viewBox="0 0 35 34" />
       </a>
       <a href="#" class="rrss">
-        <twitter-icon />
+        <twitter-icon viewBox="0 0 35 34" />
       </a>
       <a href="#" class="rrss">
-        <instagram-icon />
+        <instagram-icon viewBox="0 0 35 34" />
       </a>
     </div>
   </footer>
@@ -41,6 +41,7 @@ import InstagramIcon from '@/assets/svg/instagram.svg?component'
   height: 120px;
   color: var(--color-white);
 }
+
 .footer__container--left {
   display: flex;
   align-items: center;
@@ -56,5 +57,27 @@ import InstagramIcon from '@/assets/svg/instagram.svg?component'
 .rrss {
   width: 36px;
   height: 36px;
+}
+.rrss svg {
+  width: inherit;
+  height: inherit;
+}
+@media screen and (max-width: 1080px) {
+  .footer {
+    height: 80px;
+  }
+  .footer-logo {
+    width: 120px;
+  }
+  .copyright {
+    font-size: 14px;
+  }
+  .footer__container--right {
+    gap: 12px;
+  }
+  .rrss {
+    width: 32px;
+    height: 32px;
+  }
 }
 </style>

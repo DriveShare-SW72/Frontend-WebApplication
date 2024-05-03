@@ -97,4 +97,10 @@ const members = [
   text-align: center;
   margin-bottom: 12px;
 }
+
+@media screen and (max-width: 1080px) {
+  .about-us-description {
+    margin-bottom: 36px;
+  }
+}
 </style>

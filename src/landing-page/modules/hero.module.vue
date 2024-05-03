@@ -28,9 +28,12 @@ import HeroIllustration from '@/assets/svg/hero-illustration.svg?component'
         </div>
         <div class="hero-container--right">
           <div class="hero-container--right-bg">
-            <bg-hero-illustration />
+            <bg-hero-illustration
+              viewBox="0 0 547 463"
+              class="hero-container--right-bg-illustration"
+            />
           </div>
-          <hero-illustration class="hero-img" />
+          <hero-illustration viewBox="0 0 283 467" class="hero-img" />
         </div>
       </div>
     </div>
@@ -75,5 +78,27 @@ import HeroIllustration from '@/assets/svg/hero-illustration.svg?component'
 }
 .hero-img {
   position: relative;
+}
+
+@media screen and (max-width: 1080px) {
+  .hero-title,
+  .hero-title span {
+    font-size: 40px;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .hero-container--right-bg-illustration {
+    width: 100%;
+    height: initial;
+  }
+  .hero-img {
+    width: 50%;
+    height: initial;
+  }
+}
+
+@media screen and (max-width: 768px) {
 }
 </style>

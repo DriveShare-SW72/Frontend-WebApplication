@@ -135,4 +135,24 @@ export default {
   text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
   margin-bottom: 4px;
 }
+
+@media screen and (max-width: 1080px) {
+  .features-summary {
+    margin-bottom: 36px;
+  }
+  .features-list {
+    gap: 24px;
+  }
+  .feature-item-icon {
+    width: 80px;
+    margin-bottom: 12px;
+  }
+  .feature-item-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  .feature-item .body-2 {
+    margin: 0;
+  }
+}
 </style>

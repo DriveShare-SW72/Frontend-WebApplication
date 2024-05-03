@@ -124,6 +124,45 @@ html {
   max-width: 1200px;
   margin-inline: auto;
 }
+
+@media screen and (max-width: 1080px) {
+  .section {
+    padding: 48px 24px 48px;
+  }
+  .container {
+    max-width: 720px;
+  }
+  .heading-2 {
+    font-size: 36px;
+    line-height: 1.4;
+  }
+  .heading-3 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+  .subtitle-1 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .subtitle-2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .body-1 {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .body-2 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
 </style>
 
 <style scoped>

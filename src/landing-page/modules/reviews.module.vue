@@ -10,6 +10,18 @@ import reviewsJson from '../data/reviews.json'
 import { ref } from 'vue'
 
 const reviews = ref(reviewsJson)
+const carouselResponsiveOptions = [
+  {
+    breakpoint: '1080px',
+    numVisible: 2,
+    numScroll: 2
+  },
+  {
+    breakpoint: '768px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]
 </script>
 
 <template>
@@ -22,6 +34,7 @@ const reviews = ref(reviewsJson)
         :value="reviews"
         :num-visible="3"
         :num-scroll="3"
+        :responsiveOptions="carouselResponsiveOptions"
         circular
         class="testimonials-carousel"
       >
@@ -148,5 +161,11 @@ const reviews = ref(reviewsJson)
 .review-content {
   color: var(--color-text);
   margin: 0;
+}
+
+@media screen and (max-width: 1080px) {
+  .testimonials-title {
+    margin-block: 0 32px;
+  }
 }
 </style>

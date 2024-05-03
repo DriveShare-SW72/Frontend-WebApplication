@@ -99,4 +99,10 @@ const navlinks = [
 .register {
   text-decoration: underline;
 }
+
+@media screen and (max-width: 1080px) {
+  .navbar--right {
+    display: none;
+  }
+}
 </style>
