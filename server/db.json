@@ -2,73 +2,103 @@
   "users": [
     {
       "id": 1,
-      "name": "John Doe",
-      "email": "john@outlook.com",
-      "password": "admin1234",
-      "phone": "123-456-7890"
+      "fullname": "Juan Pérez",
+      "email": "juan.perez@example.com",
+      "password": "password123",
+      "country": "Perú",
+      "phoneNumber": "987654321",
+      "newsCheck": true,
+      "privacyCheck": false
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "email": "jane@gmail.com",
-      "password": "password123",
-      "phone": "987-654-3210"
+      "fullname": "María Gutiérrez",
+      "email": "maria.gutierrez@example.com",
+      "password": "pass456",
+      "country": "Perú",
+      "phoneNumber": "876543210",
+      "newsCheck": false,
+      "privacyCheck": true
     },
     {
       "id": 3,
-      "name": "Mike Johnson",
-      "email": "mike@yahoo.com",
+      "fullname": "Carlos López",
+      "email": "carlos.lopez@example.com",
       "password": "qwerty",
-      "phone": "555-123-4567"
+      "country": "Perú",
+      "phoneNumber": "765432109",
+      "newsCheck": true,
+      "privacyCheck": true
     },
     {
       "id": 4,
-      "name": "Emily Brown",
-      "email": "emily@hotmail.com",
+      "fullname": "Ana Ramírez",
+      "email": "ana.ramirez@example.com",
       "password": "abc123",
-      "phone": "111-222-3333"
+      "country": "Perú",
+      "phoneNumber": "654321098",
+      "newsCheck": false,
+      "privacyCheck": false
     },
     {
       "id": 5,
-      "name": "David Wilson",
-      "email": "david@gmail.com",
-      "password": "password456",
-      "phone": "444-555-6666"
+      "fullname": "Jorge Castillo",
+      "email": "jorge.castillo@example.com",
+      "password": "password789",
+      "country": "Perú",
+      "phoneNumber": "543210987",
+      "newsCheck": true,
+      "privacyCheck": true
     },
     {
       "id": 6,
-      "name": "Sarah Davis",
-      "email": "sarah@yahoo.com",
+      "fullname": "Luisa Martínez",
+      "email": "luisa.martinez@example.com",
       "password": "pass123",
-      "phone": "777-888-9999"
+      "country": "Perú",
+      "phoneNumber": "432109876",
+      "newsCheck": false,
+      "privacyCheck": true
     },
     {
       "id": 7,
-      "name": "Michael Smith",
-      "email": "michael@gmail.com",
-      "password": "password789",
-      "phone": "222-333-4444"
+      "fullname": "Diego Herrera",
+      "email": "diego.herrera@example.com",
+      "password": "passwordabc",
+      "country": "Perú",
+      "phoneNumber": "321098765",
+      "newsCheck": true,
+      "privacyCheck": false
     },
     {
       "id": 8,
-      "name": "Jessica Johnson",
-      "email": "jessica@hotmail.com",
-      "password": "passwordabc",
-      "phone": "666-777-8888"
+      "fullname": "Camila Torres",
+      "email": "camila.torres@example.com",
+      "password": "pass456",
+      "country": "Perú",
+      "phoneNumber": "210987654",
+      "newsCheck": false,
+      "privacyCheck": true
     },
     {
       "id": 9,
-      "name": "Andrew Wilson",
-      "email": "andrew@yahoo.com",
-      "password": "pass456",
-      "phone": "999-000-1111"
+      "fullname": "Ricardo Flores",
+      "email": "ricardo.flores@example.com",
+      "password": "passwordxyz",
+      "country": "Perú",
+      "phoneNumber": "109876543",
+      "newsCheck": true,
+      "privacyCheck": true
     },
     {
       "id": 10,
-      "name": "Olivia Davis",
-      "email": "olivia@gmail.com",
-      "password": "passwordxyz",
-      "phone": "333-444-5555"
+      "fullname": "Sofía Rodríguez",
+      "email": "sofia.rodriguez@example.com",
+      "password": "pass789",
+      "country": "Perú",
+      "phoneNumber": "987654321",
+      "newsCheck": false,
+      "privacyCheck": false
     }
   ]
 }

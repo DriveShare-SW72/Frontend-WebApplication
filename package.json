@@ -15,6 +15,7 @@
     "axios": "^1.6.8",
     "json-server": "^0.17.4",
     "jwt-decode": "^4.0.0",
+    "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "primevue": "^3.51.0",
     "vue": "^3.4.21",
