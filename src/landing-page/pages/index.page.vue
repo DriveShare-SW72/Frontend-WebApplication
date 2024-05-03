@@ -7,12 +7,14 @@ export default {
 <script setup>
 import VHeader from '../modules/header.module.vue'
 import VHero from '../modules/hero.module.vue'
+import VProduct from '../modules/product.module.vue'
 import VFeatures from '../modules/features.module.vue'
 </script>
 <template>
   <v-header />
   <main>
     <v-hero />
+    <v-product />
     <v-features />
   </main>
 </template>
