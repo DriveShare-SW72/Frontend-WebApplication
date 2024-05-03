@@ -10,6 +10,7 @@ import VHero from '../modules/hero.module.vue'
 import VProduct from '../modules/product.module.vue'
 import VFeatures from '../modules/features.module.vue'
 import VReviews from '../modules/reviews.module.vue'
+import VAboutUs from '../modules/about-us.module.vue'
 </script>
 <template>
   <v-header />
@@ -18,6 +19,7 @@ import VReviews from '../modules/reviews.module.vue'
     <v-product />
     <v-features />
     <v-reviews />
+    <v-about-us />
   </main>
 </template>
 
