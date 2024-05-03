@@ -140,7 +140,8 @@
       },
       "phone": "111-222-3333",
       "price_per_hour": 12.0,
-      "description": "Parking lot with 10 spaces available"
+      "description": "Parking lot with 10 spaces available",
+      "rating": 4.2
     },
     {
       "id": 2,
@@ -160,7 +161,8 @@
       },
       "phone": "555-666-7777",
       "price_per_hour": 15.0,
-      "description": "Parking garage with 20 spaces available"
+      "description": "Parking garage with 20 spaces available",
+      "rating": 4.5
     },
     {
       "id": 3,
@@ -180,7 +182,8 @@
       },
       "phone": "888-999-0000",
       "price_per_hour": 10.0,
-      "description": "Open-air parking lot with 15 spaces available"
+      "description": "Open-air parking lot with 15 spaces available",
+      "rating": 3.1
     },
     {
       "id": 4,
@@ -200,7 +203,8 @@
       },
       "phone": "777-888-9999",
       "price_per_hour": 13.5,
-      "description": "Underground parking garage with 12 spaces available"
+      "description": "Underground parking garage with 12 spaces available",
+      "rating": 4.7
     },
     {
       "id": 5,
@@ -220,7 +224,8 @@
       },
       "phone": "999-000-1111",
       "price_per_hour": 18.0,
-      "description": "Multi-level parking structure with 25 spaces available"
+      "description": "Multi-level parking structure with 25 spaces available",
+      "rating": 4.9
     },
     {
       "id": 6,
@@ -240,7 +245,8 @@
       },
       "phone": "222-333-4444",
       "price_per_hour": 14.5,
-      "description": "Indoor parking facility with 18 spaces available"
+      "description": "Indoor parking facility with 18 spaces available",
+      "rating": 2.5
     },
     {
       "id": 7,
@@ -260,7 +266,8 @@
       },
       "phone": "666-777-8888",
       "price_per_hour": 11.0,
-      "description": "Covered parking lot with 16 spaces available"
+      "description": "Covered parking lot with 16 spaces available",
+      "rating": 3.5
     },
     {
       "id": 8,
@@ -280,7 +287,8 @@
       },
       "phone": "333-444-5555",
       "price_per_hour": 16.0,
-      "description": "Underground parking garage with 20 spaces available"
+      "description": "Underground parking garage with 20 spaces available",
+      "rating": 4.5
     },
     {
       "id": 9,
@@ -300,7 +308,8 @@
       },
       "phone": "444-555-6666",
       "price_per_hour": 13.0,
-      "description": "Open-air parking lot with 15 spaces available"
+      "description": "Open-air parking lot with 15 spaces available",
+      "rating": 4.9
     },
     {
       "id": 10,
@@ -320,7 +329,8 @@
       },
       "phone": "777-888-9999",
       "price_per_hour": 17.5,
-      "description": "Multi-level parking structure with 25 spaces available"
+      "description": "Multi-level parking structure with 25 spaces available",
+      "rating": 3.6
     }
   ],
   "parkings-locations": [
