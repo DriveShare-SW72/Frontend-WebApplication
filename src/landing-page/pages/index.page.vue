@@ -12,6 +12,7 @@ import VFeatures from '../modules/features.module.vue'
 import VReviews from '../modules/reviews.module.vue'
 import VAboutUs from '../modules/about-us.module.vue'
 import VPricing from '../modules/pricing.module.vue'
+import VFooter from '../components/footer.component.vue'
 </script>
 <template>
   <v-header />
@@ -23,6 +24,7 @@ import VPricing from '../modules/pricing.module.vue'
     <v-pricing />
     <v-about-us />
   </main>
+  <v-footer />
 </template>
 
 <style>
