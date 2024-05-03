@@ -5,11 +5,14 @@ export default {
 </script>
 
 <script setup>
-import VHeader from '../components/header.component.vue'
+import VHeader from '../modules/header.module.vue'
+import VHero from '../modules/hero.module.vue'
 </script>
 <template>
   <v-header />
-  <main></main>
+  <main>
+    <v-hero />
+  </main>
 </template>
 
 <style>
@@ -67,43 +70,43 @@ import VHeader from '../components/header.component.vue'
 
 .heading-1 {
   font-weight: 700;
-  font-size: 6.4rem;
-  line-height: 7.2rem;
+  font-size: 64px;
+  line-height: 72px;
 }
 .heading-2 {
   font-weight: 700;
-  font-size: 4.8rem;
-  line-height: 6.4rem;
+  font-size: 48px;
+  line-height: 64px;
 }
 .heading-3 {
   font-weight: 600;
-  font-size: 4rem;
-  line-height: 4.8rem;
+  font-size: 40px;
+  line-height: 48px;
 }
 .subtitle-1 {
   font-weight: 500;
-  font-size: 2.4rem;
-  line-height: 4rem;
+  font-size: 24px;
+  line-height: 40px;
 }
 .subtitle-2 {
   font-weight: 500;
-  font-size: 2rem;
-  line-height: 2.4rem;
+  font-size: 20px;
+  line-height: 24px;
 }
 .body-1 {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: 18px;
+  line-height: 28px;
 }
 .body-2 {
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .section {
-  padding: 6.4rem 3.2rem;
+  padding: 64px 32px;
 }
 .container {
-  max-width: 120rem;
+  max-width: 1200px;
   margin-inline: auto;
 }
 </style>

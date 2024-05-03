@@ -5,8 +5,8 @@ export default {
 </script>
 
 <script setup>
-import VButton from './button.component.vue'
-import VLogo from './logo.component.vue'
+import VButton from '../components/button.component.vue'
+import VLogo from '../components/logo.component.vue'
 const navlinks = [
   {
     title: 'Producto',

@@ -5,11 +5,11 @@ export default {
 </script>
 
 <script setup>
-import imageLogo from '@/assets/svg/logo.svg'
+import ImageLogo from '@/assets/svg/logo.svg?component'
 </script>
 
 <template>
   <router-link to="/">
-    <img :src="imageLogo" alt="Logo" class="logo" loading="eager" />
+    <image-logo class="logo" />
   </router-link>
 </template>
