@@ -25,6 +25,11 @@ class ParkingApiService {
     }
   }
 
+  async getParking(id) {
+    const response = await this.axiosInstance.get(`/parkings/${id}`)
+    return response.data
+  }
+
   async getParkingsLocations() {
     try {
       const response = await this.axiosInstance.get('/parkings-locations')

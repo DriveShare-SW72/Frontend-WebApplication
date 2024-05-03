@@ -4,9 +4,11 @@ import PvCarousel from 'primevue/carousel'
 import PvFieldset from 'primevue/fieldset'
 import PvButton from 'primevue/button'
 import { useRoute } from 'vue-router'
+import ParkingApiService from '../services/parkingApi.service'
 
 const route = useRoute()
 const parkingId = route.params.id
+const parkingService = new ParkingApiService()
 
 console.log(parkingId)
 
@@ -48,6 +50,15 @@ const parkingImages = [
     alt: 'Parking image 9'
   }
 ]
+
+parkingService
+  .getParking(parkingId)
+  .then((parking) => {
+    console.log(parking)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 </script>
 
 <template>
