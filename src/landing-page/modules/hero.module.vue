@@ -100,5 +100,36 @@ import HeroIllustration from '@/assets/svg/hero-illustration.svg?component'
 }
 
 @media screen and (max-width: 768px) {
+  .section {
+    padding-top: 48px;
+  }
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .hero-title {
+    margin-block: 0 12px;
+  }
+  .hero-title,
+  .hero-title span {
+    font-size: 32px;
+    text-align: center;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin-block: 0 24px;
+  }
+  .hero-container--left a {
+    display: block;
+    width: fit-content;
+    margin-inline: auto;
+  }
+
+  .hero-container--right {
+    width: 80%;
+    margin-inline: auto;
+  }
 }
 </style>

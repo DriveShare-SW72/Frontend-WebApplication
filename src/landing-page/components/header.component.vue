@@ -105,4 +105,13 @@ const navlinks = [
     display: none;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding-inline: 16px;
+  }
+  .navbar {
+    height: 64px;
+  }
+}
 </style>

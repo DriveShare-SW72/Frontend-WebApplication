@@ -155,4 +155,57 @@ export default {
     margin: 0;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .section {
+    padding-bottom: 64px;
+  }
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin-inline: auto;
+    gap: 32px;
+  }
+  .feature-item-container {
+    width: 100%;
+    max-width: initial;
+    column-gap: 24px;
+  }
+  .feature-item:nth-child(n) .feature-item-container {
+    display: grid;
+    grid-template-areas:
+      'icon title'
+      'icon description';
+    text-align: left;
+  }
+  .feature-item:nth-child(2n) .feature-item-container {
+    display: grid;
+    grid-template-areas:
+      'title icon'
+      'description icon';
+    align-items: center;
+    text-align: left;
+  }
+  .feature-item-icon {
+    margin: 0;
+    width: 64px;
+    height: 64px;
+  }
+  .feature-item-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  .feature-item-container .feature-item-icon {
+    grid-area: icon;
+  }
+  .feature-item-container .subtitle-1 {
+    margin-top: auto;
+    grid-area: title;
+  }
+  .feature-item-container .body-2 {
+    margin-block: 0 auto;
+    grid-area: description;
+  }
+}
 </style>

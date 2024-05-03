@@ -155,4 +155,17 @@ import VCard from '../components/card.component.vue'
     margin: 0;
   }
 }
+@media screen and (max-width: 768px) {
+  .paragraph {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  .product-section-benefits {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-benefit p {
+    line-height: 1.2;
+  }
+}
 </style>

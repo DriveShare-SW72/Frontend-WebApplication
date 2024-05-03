@@ -10,6 +10,14 @@ import ImageLogo from '@/assets/svg/logo.svg?component'
 
 <template>
   <router-link to="/">
-    <image-logo class="logo" />
+    <image-logo viewBox="0 0 167 52" class="logo" />
   </router-link>
 </template>
+
+<style scoped>
+@media screen and (max-width: 768px) {
+  .logo {
+    width: 96px;
+  }
+}
+</style>

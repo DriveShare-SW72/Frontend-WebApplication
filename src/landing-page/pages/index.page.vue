@@ -159,8 +159,35 @@ html {
 }
 
 @media screen and (max-width: 768px) {
+  .section {
+    padding: 32px 16px;
+  }
   .container {
-    max-width: 640px;
+    max-width: 560px;
+  }
+  .heading-2 {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+  .heading-3 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+  .subtitle-1 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  .subtitle-2 {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .body-1 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .body-2 {
+    font-size: 12px;
+    line-height: 1.4;
   }
 }
 </style>

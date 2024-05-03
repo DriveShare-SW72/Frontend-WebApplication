@@ -253,4 +253,20 @@ export default {
     margin-bottom: 4px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .pricing-summary {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .pricing-summary-group {
+    margin: 0;
+    gap: 32px;
+  }
+  .pricing-summary-divider {
+    display: none;
+  }
+}
 </style>

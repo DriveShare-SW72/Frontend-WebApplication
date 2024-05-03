@@ -80,4 +80,22 @@ import InstagramIcon from '@/assets/svg/instagram.svg?component'
     height: 32px;
   }
 }
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-inline: 16px;
+  }
+  .footer__container--left {
+    gap: 12px;
+  }
+  .copyright {
+    font-size: 10px;
+  }
+  .footer__container--right {
+    gap: 8px;
+  }
+  .rrss {
+    width: 20px;
+    height: 20px;
+  }
+}
 </style>
