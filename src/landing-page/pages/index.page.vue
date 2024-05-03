@@ -11,6 +11,7 @@ import VProduct from '../modules/product.module.vue'
 import VFeatures from '../modules/features.module.vue'
 import VReviews from '../modules/reviews.module.vue'
 import VAboutUs from '../modules/about-us.module.vue'
+import VPricing from '../modules/pricing.module.vue'
 </script>
 <template>
   <v-header />
@@ -19,6 +20,7 @@ import VAboutUs from '../modules/about-us.module.vue'
     <v-product />
     <v-features />
     <v-reviews />
+    <v-pricing />
     <v-about-us />
   </main>
 </template>
