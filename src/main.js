@@ -5,11 +5,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import router from './router'
+import googleApiLoader from './utils/googleApiLoader'
 
-import ToastService from 'primevue/toastservice'
-//import Toast from "primevue/toast";
-
-// const pinia = createPinia()
 const app = createApp(App)
 
-app.use(PrimeVue, { ripple: true }).use(router).use(ToastService).mount('#app')
+googleApiLoader.importLibrary('core')
+
+app.use(PrimeVue, { ripple: true }).use(router).mount('#app')

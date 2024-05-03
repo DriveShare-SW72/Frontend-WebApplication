@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'sidebar-component'
+}
+</script>
+
 <script setup>
 import { ref } from 'vue'
 import PvSidebar from 'primevue/sidebar'
