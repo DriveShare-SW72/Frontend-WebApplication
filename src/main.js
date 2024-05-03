@@ -6,8 +6,7 @@ import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import router from './router'
 
-//import {createPinia} from "pinia";
-import ToastService from "primevue/toastservice";
+import ToastService from 'primevue/toastservice'
 //import Toast from "primevue/toast";
 
 // const pinia = createPinia()

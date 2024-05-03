@@ -1,51 +1,8 @@
 <script>
-
 import { AuthService } from '@/auth/services/auth.service.js'
 
 export default {
-  name: 'sign-in-component',
-  data() {
-    return {
-      email: '',
-      password: '',
-      authService: new AuthService()
-    }
-  },
-  methods: {
-    login(event) {
-      event.preventDefault();
-      this.authService.signIn(this.email, this.password)
-        .then(user => {
-          // Autenticación exitosa, redirigir a la página principal
-          console.log('User signed in:', user);
-          this.$toast.add({
-            severity: "success",
-            summary: "Success",
-            detail: "Redirecting to home...",
-            life: 2000
-          });
-          setTimeout(() => {
-            this.$router.push("/find-your-park");
-          }, 2000);
-        })
-        .catch(error => {
-          // Error durante el inicio de sesión, mostrar mensaje de error
-          console.error('Error logging in:', error);
-          let errorMessage = 'Error while logging in. Please try again.';
-          if (error.message === 'Invalid password') {
-            errorMessage = 'Invalid password. Please try again.';
-          } else if (error.message === 'User not found') {
-            errorMessage = 'User not found. Please check your credentials.';
-          }
-          this.$toast.add({
-            severity: "error",
-            summary: "Error",
-            detail: errorMessage,
-            life: 1000
-          });
-        });
-    }
-  }
+  name: 'sign-in-component'
 }
 </script>
 
@@ -56,8 +13,6 @@ import PvPassword from 'primevue/password'
 import PvButton from 'primevue/button'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const oauthGoogleProvider = new GoogleAuthProvider()
 oauthGoogleProvider.initialize()
@@ -82,17 +37,36 @@ oauthGoogleProvider.onSignIn((user, accessToken) => {
     .then(() => setTimeout(() => router.push('/find-your-park'), 1500))
     .catch(console.error)
 })
+const googleSignInBtn = ref(null)
 
 onMounted(() => oauthGoogleProvider.renderButton(googleSignInBtn.value, 'outline', 368))
 
-const email = ref(null)
-const password = ref(null)
-const googleSignInBtn = ref(null)
+const router = useRouter()
+
+const authService = new AuthService()
+const email = ref('')
+const password = ref('')
+const error = ref('')
+
+async function handleLogin() {
+  try {
+    await authService.signIn(email.value, password.value)
+
+    error.value = ''
+
+    setTimeout(() => {
+      router.push('/find-your-park')
+    }, 1000)
+  } catch (err) {
+    error.value = 'User not found. Please check your credentials.'
+    console.error('Error logging in:', err)
+  }
+}
 </script>
 
 <template>
   <section class="form-container">
-    <form class="form" v-on:submit="login($event)">
+    <form class="form" @submit.prevent="handleLogin()">
       <div class="form-item">
         <div class="logo-container">
           <img alt="Logo" class="logo" src="../../assets/logo.svg" />
@@ -118,6 +92,7 @@ const googleSignInBtn = ref(null)
           toggleMask
         />
       </div>
+      <div v-if="error">{{ error }}</div>
       <div class="form-item">
         <pv-button class="form-btn" type="submit" id="submit" label="Login" />
       </div>

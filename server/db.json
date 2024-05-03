@@ -99,6 +99,26 @@
       "phoneNumber": "987654321",
       "newsCheck": false,
       "privacyCheck": false
+    },
+    {
+      "fullname": "Marcelo Fabian Garro Vega",
+      "password": "fabian13",
+      "email": "marcelogarro137@gmail.com",
+      "country": "",
+      "phoneNumber": 958872689,
+      "newsCheck": true,
+      "privacyCheck": true,
+      "id": 11
+    },
+    {
+      "fullname": "Neiro",
+      "password": "123123",
+      "email": "mae@exmaple.com",
+      "country": "",
+      "phoneNumber": 7573123123,
+      "newsCheck": false,
+      "privacyCheck": false,
+      "id": 12
     }
   ]
 }
