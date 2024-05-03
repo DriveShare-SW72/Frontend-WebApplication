@@ -5,9 +5,6 @@ export default {
 </script>
 
 <script setup>
-const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
-const MAP_DEFAULT_ZOOM = 18
-
 import ParkingApiService from '@/parkings/services/parkingApi.service'
 import VBaseLayout from '@/public/layout/base.layout.vue'
 import VGoogleMap from '@/public/components/google-map.component.vue'
@@ -16,6 +13,9 @@ import PvSlider from 'primevue/slider'
 import PvButton from 'primevue/button'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+
+const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
+const MAP_DEFAULT_ZOOM = 18
 
 const parkingService = new ParkingApiService()
 
