@@ -9,7 +9,7 @@ import ParkingApiService from '@/parkings/services/parkingApi.service'
 import VBaseLayout from '@/public/layout/base.layout.vue'
 import VGoogleMap from '@/public/components/google-map.component.vue'
 import VGoogleAutocomplete from '@/public/components/google-autocomplete.component.vue'
-import PvSlider from 'primevue/slider'
+import PvDropdown from 'primevue/dropdown'
 import PvButton from 'primevue/button'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -19,11 +19,21 @@ const MAP_DEFAULT_ZOOM = 18
 
 const parkingService = new ParkingApiService()
 
-const priceRange = ref([0, 100])
 const locations = ref([])
 const router = useRouter()
 /** @type {import('vue').Ref<google.maps.Map>} */
 const map = ref(null)
+
+const selectedFare = ref('')
+const fareOptions = ref([
+  'S/5.00 - S/10.00',
+  'S/10.00 - S/15.00',
+  'S/15.00 - S/20.00',
+  'S/20.00 - more'
+])
+
+const selectedRating = ref('')
+const ratingOptions = ref(['1 star', '2 stars', '3 stars', '4 stars', '5 stars'])
 
 parkingService
   .getParkingsLocations()
@@ -44,76 +54,115 @@ function handleAutocompletePlaceChanged(place) {
 </script>
 <template>
   <v-base-layout>
-    <div class="search-container">
-      <form class="search-form" @submit.prevent>
-        <v-google-autocomplete
-          class="search-input"
-          @placeChanged="handleAutocompletePlaceChanged"
+    <section class="main-section">
+      <header class="section-header">
+        <h1 class="section-title">Find your park</h1>
+        <p class="section-subtitle">
+          Search for a parking lot near you and find the best option for you. You can filter by
+          price and see the location of the parking lot on the map.
+        </p>
+      </header>
+      <div class="search-container">
+        <form class="search-form" @submit.prevent>
+          <v-google-autocomplete
+            class="search-input"
+            @placeChanged="handleAutocompletePlaceChanged"
+          />
+          <pv-dropdown
+            class="search-dropdown"
+            placeholder="Filter by fare"
+            v-model="selectedFare"
+            :options="fareOptions"
+          />
+          <pv-dropdown
+            class="search-dropdown"
+            placeholder="Filter by rating"
+            v-model="selectedRating"
+            :options="ratingOptions"
+          />
+          <pv-button label="Search" class="search-btn" icon="pi pi-search" />
+        </form>
+      </div>
+      <div class="map-container">
+        <v-google-map
+          :center="MAP_DEFAULT_CENTER"
+          :zoom="MAP_DEFAULT_ZOOM"
+          :markers="locations"
+          @clickMarker="handleMarkerClick"
+          v-model:map="map"
         />
-        <div class="search-filter-price">
-          <span class="search-filter-price-label">Filter by price</span>
-          <div class="search-filter-min-max-prices">
-            <span class="search-filter-min-price">S/ {{ priceRange[0] }}</span>
-            <span class="search-filter-max-price">S/ {{ priceRange[1] }}</span>
-          </div>
-          <pv-slider range v-model="priceRange" class="search-filter-slider" />
-        </div>
-        <pv-button label="History" class="search-btn-history" icon="pi pi-history" />
-      </form>
-    </div>
-    <div class="map-container">
-      <v-google-map
-        :center="MAP_DEFAULT_CENTER"
-        :zoom="MAP_DEFAULT_ZOOM"
-        :markers="locations"
-        @clickMarker="handleMarkerClick"
-        v-model:map="map"
-      />
-    </div>
+      </div>
+    </section>
   </v-base-layout>
 </template>
 
 <style scoped>
+.main-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.section-title {
+  font-size: 48px;
+  font-family: 'Rubik', sans-serif;
+  color: #3c4e67;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-block: 0 12px;
+}
+.section-subtitle {
+  font-size: 18px;
+  margin-block: 0;
+}
+.section-header {
+  margin-bottom: 1.25rem;
+}
 .search-container {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
 }
 .search-form {
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
   align-items: center;
 }
 .search-input {
   width: 100%;
+  outline-color: #ef6c42;
+  font-family: 'Mulish', sans-serif;
 }
-.search-filter-price {
-  width: 12rem;
+.search-dropdown {
+  outline-color: #ef6c42;
 }
-.search-filter-price-label {
-  text-align: center;
-  display: block;
-  font-size: 1.05rem;
-  font-weight: 700;
+.search-dropdown :deep(.p-dropdown-label) {
+  font-family: 'Mulish', sans-serif;
+  font-size: 16px;
 }
-.search-filter-min-max-prices {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-.search-filter-min-price {
-  transform: translateX(-50%);
-}
-.search-filter-max-price {
-  transform: translateX(50%);
-}
-.search-btn-history {
+.search-btn {
   flex-shrink: 0;
+  background: #3c4e67;
+  font-family: 'Mulish', sans-serif;
+  transition: all 0.15s ease-in;
+  border: 0;
 }
-
+.search-btn:hover {
+  background: #2e3c4f;
+}
 .map-container {
   width: 100%;
-  aspect-ratio: 3 / 1;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  height: 100%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   overflow: hidden;
+}
+@media screen and (max-width: 1080px) {
+  .map-container {
+    aspect-ratio: initial;
+    height: 100%;
+  }
+  .search-form {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
 }
 </style>

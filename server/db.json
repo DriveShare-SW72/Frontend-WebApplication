@@ -141,7 +141,8 @@
       "phone": "111-222-3333",
       "price_per_hour": 12,
       "description": "Parking lot with 10 spaces available",
-      "rating": 4.2
+      "rating": 4.2,
+      "max_capacity": 3
     },
     {
       "id": 2,
@@ -162,7 +163,8 @@
       "phone": "555-666-7777",
       "price_per_hour": 15,
       "description": "Parking garage with 20 spaces available",
-      "rating": 4.5
+      "rating": 4.5,
+      "max_capacity": 2
     },
     {
       "id": 3,
@@ -183,7 +185,8 @@
       "phone": "888-999-0000",
       "price_per_hour": 10,
       "description": "Open-air parking lot with 15 spaces available",
-      "rating": 3.1
+      "rating": 3.1,
+      "max_capacity": 4
     },
     {
       "id": 4,
@@ -204,7 +207,8 @@
       "phone": "777-888-9999",
       "price_per_hour": 13.5,
       "description": "Underground parking garage with 12 spaces available",
-      "rating": 4.7
+      "rating": 4.7,
+      "max_capacity": 1
     },
     {
       "id": 5,
@@ -225,7 +229,8 @@
       "phone": "999-000-1111",
       "price_per_hour": 18,
       "description": "Multi-level parking structure with 25 spaces available",
-      "rating": 4.9
+      "rating": 4.9,
+      "max_capacity": 3
     },
     {
       "id": 6,
@@ -246,7 +251,8 @@
       "phone": "222-333-4444",
       "price_per_hour": 14.5,
       "description": "Indoor parking facility with 18 spaces available",
-      "rating": 2.5
+      "rating": 2.5,
+      "max_capacity": 2
     },
     {
       "id": 7,
@@ -267,7 +273,8 @@
       "phone": "666-777-8888",
       "price_per_hour": 11,
       "description": "Covered parking lot with 16 spaces available",
-      "rating": 3.5
+      "rating": 3.5,
+      "max_capacity": 4
     },
     {
       "id": 8,
@@ -288,7 +295,8 @@
       "phone": "333-444-5555",
       "price_per_hour": 16,
       "description": "Underground parking garage with 20 spaces available",
-      "rating": 4.5
+      "rating": 4.5,
+      "max_capacity": 1
     },
     {
       "id": 9,
@@ -309,7 +317,8 @@
       "phone": "444-555-6666",
       "price_per_hour": 13,
       "description": "Open-air parking lot with 15 spaces available",
-      "rating": 4.9
+      "rating": 4.9,
+      "max_capacity": 3
     },
     {
       "id": 10,
@@ -330,28 +339,8 @@
       "phone": "777-888-9999",
       "price_per_hour": 17.5,
       "description": "Multi-level parking structure with 25 spaces available",
-      "rating": 3.6
-    },
-    {
-      "id": "e5be5acd-7afa-4553-be37-31a0f80beae0",
-      "owner_id": 1,
-      "address": "Av. Domingo Orué 520, Surquillo 15047, Peru",
-      "number": "520",
-      "city": "Surquillo",
-      "state": "Lima",
-      "dimensions": {
-        "width": "4",
-        "length": "3",
-        "height": "12"
-      },
-      "schedule": {
-        "start_time": "08:00",
-        "end_time": "20:00"
-      },
-      "phone": "999-999-123",
-      "price_per_hour": 0,
-      "description": "",
-      "rating": 0
+      "rating": 3.6,
+      "max_capacity": 2
     },
     {
       "id": 195,
@@ -372,7 +361,8 @@
       "phone": "999-999-999",
       "price_per_hour": 0,
       "description": "",
-      "rating": 0
+      "rating": 0,
+      "max_capacity": 3
     },
     {
       "id": 475,
@@ -391,6 +381,112 @@
         "end_time": "18:00"
       },
       "phone": "984-782-999",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0,
+      "max_capacity": 2
+    },
+    {
+      "id": 299,
+      "owner_id": 1,
+      "address": "Av. 28 de Julio, Lima, Peru",
+      "number": "",
+      "city": "Lima",
+      "state": "Lima",
+      "dimensions": {
+        "width": 0,
+        "length": "134",
+        "height": 0
+      },
+      "schedule": {
+        "start_time": "12:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-999-999",
+      "price_per_hour": "S/ 12.00",
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 335,
+      "owner_id": 1,
+      "address": "Av Lima 1300, Barranco 15049, Peru",
+      "number": "1300",
+      "city": "Barranco",
+      "state": "Lima",
+      "dimensions": {
+        "width": "10",
+        "length": "10",
+        "height": "10"
+      },
+      "schedule": {
+        "start_time": "12:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-999-990",
+      "price_per_hour": "S/ 12.00",
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 293,
+      "owner_id": 1,
+      "address": "Av. Abancay, Lima, Peru",
+      "number": "",
+      "city": "Lima",
+      "state": "Lima",
+      "dimensions": {
+        "width": 0,
+        "length": 0,
+        "height": 0
+      },
+      "schedule": {
+        "start_time": "",
+        "end_time": ""
+      },
+      "phone": "",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 602,
+      "owner_id": 1,
+      "address": "Av. 28 de Julio, Lima, Peru",
+      "number": "",
+      "city": "Lima",
+      "state": "Lima",
+      "dimensions": {
+        "width": 0,
+        "length": 0,
+        "height": 0
+      },
+      "schedule": {
+        "start_time": "",
+        "end_time": ""
+      },
+      "phone": "",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 508,
+      "owner_id": 1,
+      "address": "Av. 28 de Julio, Lima, Peru",
+      "number": "",
+      "city": "Lima",
+      "state": "Lima",
+      "dimensions": {
+        "width": 0,
+        "length": 0,
+        "height": 0
+      },
+      "schedule": {
+        "start_time": "",
+        "end_time": ""
+      },
+      "phone": "",
       "price_per_hour": 0,
       "description": "",
       "rating": 0
@@ -528,6 +624,36 @@
       "lat": -12.1062398,
       "lng": -77.01751569999999,
       "parking_id": 475
+    },
+    {
+      "id": 764,
+      "lat": -12.0627321,
+      "lng": -77.0261568,
+      "parking_id": 299
+    },
+    {
+      "id": 963,
+      "lat": -12.1411317,
+      "lng": -77.0129606,
+      "parking_id": 335
+    },
+    {
+      "id": 220,
+      "lat": -12.0507783,
+      "lng": -77.02833269999999,
+      "parking_id": 293
+    },
+    {
+      "id": 538,
+      "lat": -12.0627321,
+      "lng": -77.0261568,
+      "parking_id": 602
+    },
+    {
+      "id": 454,
+      "lat": -12.0627321,
+      "lng": -77.0261568,
+      "parking_id": 508
     }
   ]
 }

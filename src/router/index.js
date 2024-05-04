@@ -6,6 +6,7 @@ import RecoveryPage from '@/auth/pages/recovery.page.vue'
 import FindYourParkPage from '@/public/pages/find-your-park.page.vue'
 import ParkingDetailPage from '@/parkings/pages/parking-detail.page.vue'
 import RegisterPark from '@/public/pages/register-park.page.vue'
+import NotFoundPage from '@/public/pages/not-found.page.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -37,6 +38,10 @@ const router = createRouter({
     {
       path: '/register-park',
       component: RegisterPark
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: NotFoundPage
     }
   ]
 })

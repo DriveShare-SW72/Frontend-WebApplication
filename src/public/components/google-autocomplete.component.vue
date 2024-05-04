@@ -29,11 +29,9 @@ initAutocomplete()
 
 <template>
   <input
-    class="p-inputtext p-component search-input"
+    class="p-inputtext"
     autocomplete="off"
     placeholder="Search in a specific address..."
     ref="inputRef"
   />
 </template>
-
-<style></style>

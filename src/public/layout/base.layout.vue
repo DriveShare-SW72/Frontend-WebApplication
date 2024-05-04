@@ -14,7 +14,6 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
       <sidebar-component />
     </div>
     <div class="view-container">
-      <h1 class="view-container-title">Ez Park</h1>
       <slot />
     </div>
   </main>
@@ -28,14 +27,16 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
 }
 .view-container {
   width: 100%;
-  padding-block: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-block: 2rem;
   padding-inline: 3.5rem;
 }
-.view-container-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  font-family: 'Rubik', sans-serif;
-  margin: 0;
-  text-align: center;
+
+@media screen and (max-width: 1080px) {
+  .view-container {
+    padding-block: 1rem;
+    padding-inline: 1.25rem;
+  }
 }
 </style>

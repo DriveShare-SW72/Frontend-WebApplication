@@ -11,14 +11,17 @@ import VGoogleMap from '../components/google-map.component.vue'
 import PvInputText from 'primevue/inputtext'
 import PvInputMask from 'primevue/inputmask'
 import PvButton from 'primevue/button'
+import PvDivider from 'primevue/divider'
 import { reactive, ref } from 'vue'
 import ParkingApiService from '@/parkings/services/parkingApi.service'
+import { useRouter } from 'vue-router'
 
 const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
 const MAP_DEFAULT_ZOOM = 18
 
 const map = ref(null)
 const parkingService = new ParkingApiService()
+const router = useRouter()
 
 const formState = reactive({
   address: '',
@@ -37,6 +40,8 @@ const formState = reactive({
   fare: 0,
   description: ''
 })
+
+const loading = ref(false)
 
 /** @param {google.maps.places.PlaceResult} place */
 function handleAutocompletePlaceChanged(place) {
@@ -95,17 +100,39 @@ function handlePostGarage() {
     lat: formState.lat,
     lng: formState.lng
   }
-  parkingService.postParking(parkingDTOPost).then(() => {
-    console.log('Parking posted successfully')
-  })
+
+  loading.value = true
+  parkingService
+    .postParking(parkingDTOPost)
+    .then(() => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, 2000)
+      })
+    })
+    .then(() => {
+      loading.value = false
+    })
+    .finally(() => {
+      setTimeout(() => {
+        router.push('/find-your-park')
+      }, 1000)
+    })
 }
 </script>
 
 <template>
   <v-base-layout>
-    <section class="register-section">
-      <h2 class="register-title">Rent your parking</h2>
-
+    <section class="main-section">
+      <div class="section-header">
+        <h2 class="section-title">Rent your parking</h2>
+        <p class="section-subtitle">
+          Fill in the following form with the information of the parking lot you want to rent. Once
+          you have completed the form, click on the "Post parking" button to publish the parking lot
+        </p>
+      </div>
+      <pv-divider />
       <form @submit.prevent>
         <div class="register-form-section--top">
           <div class="register-form-field register-form-field--address">
@@ -152,19 +179,24 @@ function handlePostGarage() {
           </div>
           <div class="register-form-cta">
             <div class="register-form-field register-form-field--fare">
-              <label for="fare">Price per hour (includes commission)</label>
-              <pv-input-text />
+              <label for="fare">Price per hour</label>
+              <pv-input-mask mask="S/ 99.99" v-model="formState.fare" />
+              <small>* includes commission</small>
             </div>
             <div class="register-form-field register-form-field--description">
               <label for="description">Description</label>
               <pv-input-text />
             </div>
-            <pv-button
-              @click="handlePostGarage()"
-              class="register-form-post-btn"
-              label="Post parking"
-              severity="contrast"
-            />
+            <div class="post-container">
+              <i v-if="loading" class="pi pi-spin pi-spinner" />
+              <pv-button
+                v-else
+                @click="handlePostGarage()"
+                class="register-form-post-btn"
+                label="Post parking"
+                severity="contrast"
+              />
+            </div>
           </div>
         </div>
       </form>
@@ -173,18 +205,27 @@ function handlePostGarage() {
 </template>
 
 <style scoped>
-.register-section {
-  background: #e7efff;
-  padding: 2rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+.main-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.register-title {
-  font-size: 2.5rem;
-  font-weight: 700;
+.section-title {
+  font-size: 48px;
   font-family: 'Rubik', sans-serif;
-  margin-block: 0 0.75rem;
+  color: #3c4e67;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-block: 0 12px;
 }
+.section-subtitle {
+  font-size: 16px;
+  margin-block: 0;
+}
+.section-header + .p-divider {
+  margin-bottom: 24px;
+}
+
 .register-form-section--top {
   display: flex;
   gap: 1.5rem;
@@ -193,6 +234,9 @@ function handlePostGarage() {
 .register-form-field {
   display: flex;
   flex-direction: column;
+}
+.register-form-field small {
+  margin-top: 4px;
 }
 .register-form-field--address {
   width: 100%;
@@ -235,5 +279,26 @@ function handlePostGarage() {
   flex-shrink: 0;
   height: fit-content;
   margin-block: auto;
+  background: #3c4e67;
+}
+.post-container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 1080px) {
+  .map-container {
+    min-height: 16rem;
+  }
+  .register-form-field--spaces {
+    flex-shrink: initial;
+  }
+  .register-form-additional-info {
+    flex-wrap: wrap;
+  }
+  .register-form-cta {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 </style>
