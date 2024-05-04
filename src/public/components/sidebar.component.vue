@@ -29,38 +29,30 @@ const visible = ref(false)
       <div class="items-container">
         <div class="upper-side">
           <div class="sidebar-item">
-            <a href="">
+            <router-link class="router" to="/find-your-park">
               <i class="pi pi-home" />
-            </a>
-            <a href="">
-              <h2>Home</h2>
-            </a>
+            </router-link>
+            <router-link class="router" to="/find-your-park">Home</router-link>
           </div>
           <div class="sidebar-item">
-            <a href="">
+            <router-link class="router" to="/find-your-park">
               <i class="pi pi-map-marker" />
-            </a>
-            <a href="">
-              <h2>Find Parking</h2>
-            </a>
+            </router-link>
+            <router-link class="router" to="/find-your-park">Find Parking</router-link>
           </div>
           <div class="sidebar-item">
-            <a href="">
+            <router-link class="router" to="/register-park">
               <i class="pi pi-dollar" />
-            </a>
-            <a href="">
-              <h2>Rent your parking</h2>
-            </a>
+            </router-link>
+            <router-link class="router" to="/register-park">Rent Parking</router-link>
           </div>
         </div>
         <div class="lower-side">
           <div class="sidebar-item">
-            <a href="">
+            <router-link class="router" to="/">
               <i class="pi pi-sign-out" />
-            </a>
-            <a href="">
-              <h2>Log out</h2>
-            </a>
+            </router-link>
+            <router-link class="router" to="/">Log Out</router-link>
           </div>
         </div>
       </div>
@@ -93,6 +85,10 @@ a {
   gap: 1.5em;
 
   margin: 20px 0 0 5px;
+}
+
+.router{
+  font-size: 1.5em;
 }
 
 .profile-container {
