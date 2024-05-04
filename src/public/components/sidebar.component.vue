@@ -206,6 +206,28 @@ const visible = ref(false)
   }
   .mobile-sidebar-pv .sidebar-container {
     display: block;
+    width: 100%;
   }
+  .nav-link .pi {
+    font-size: 16px;
+  }
+  .nav-link span {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .profile-name {
+    font-size: 20px;
+  }
+  .edit-profile {
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+  }
+}
+</style>
+
+<style>
+.p-sidebar {
+  border: none;
 }
 </style>
