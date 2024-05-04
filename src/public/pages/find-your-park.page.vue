@@ -68,18 +68,21 @@ function handleAutocompletePlaceChanged(place) {
             class="search-input"
             @placeChanged="handleAutocompletePlaceChanged"
           />
-          <pv-dropdown
-            class="search-dropdown"
-            placeholder="Filter by fare"
-            v-model="selectedFare"
-            :options="fareOptions"
-          />
-          <pv-dropdown
-            class="search-dropdown"
-            placeholder="Filter by rating"
-            v-model="selectedRating"
-            :options="ratingOptions"
-          />
+          <div class="search-filters">
+            <pv-dropdown
+              class="search-dropdown"
+              placeholder="Filter by fare"
+              v-model="selectedFare"
+              :options="fareOptions"
+            />
+            <pv-dropdown
+              class="search-dropdown"
+              placeholder="Filter by rating"
+              v-model="selectedRating"
+              :options="ratingOptions"
+            />
+          </div>
+
           <pv-button label="Search" class="search-btn" icon="pi pi-search" />
         </form>
       </div>
@@ -133,6 +136,10 @@ function handleAutocompletePlaceChanged(place) {
 .search-dropdown {
   outline-color: #ef6c42;
 }
+.search-filters {
+  display: flex;
+  gap: 16px;
+}
 .search-dropdown :deep(.p-dropdown-label) {
   font-family: 'Mulish', sans-serif;
   font-size: 16px;
@@ -163,6 +170,43 @@ function handleAutocompletePlaceChanged(place) {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
+  }
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-size: 14px;
+  }
+  .search-form {
+    display: grid;
+    grid-template-areas:
+      'search-input search-btn'
+      'search-filters search-filters';
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .search-input {
+    grid-area: search-input;
+    width: 100%;
+    font-size: 12px;
+  }
+  .search-filters {
+    display: flex;
+    grid-area: search-filters;
+    gap: 8px;
+  }
+  .search-dropdown {
+    font-size: 12px;
+    width: 100%;
+  }
+  .search-dropdown :deep(.p-dropdown-label) {
+    font-size: 12px;
+  }
+
+  .search-btn {
+    grid-area: search-btn;
+    font-size: 12px;
   }
 }
 </style>

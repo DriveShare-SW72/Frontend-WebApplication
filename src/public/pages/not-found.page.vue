@@ -63,4 +63,20 @@ import BgIllustration from '@/assets/svg/bg-illustration.svg?component'
   font-weight: 700;
   color: #3c4e67;
 }
+@media screen and (max-width: 1080px) {
+  .not-found-img {
+    width: 160px;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .not-found-icon {
+    font-size: 64px;
+  }
+  .not-found-title {
+    font-size: 24px;
+  }
+  .not-found-description {
+    font-size: 14px;
+  }
+}
 </style>

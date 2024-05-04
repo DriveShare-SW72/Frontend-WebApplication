@@ -138,6 +138,7 @@ function handlePostGarage() {
           <div class="register-form-field register-form-field--address">
             <label for="address">Exact address of the space to rent:</label>
             <v-google-autocomplete
+              class="input-autocomplete"
               @placeChanged="handleAutocompletePlaceChanged"
               v-model="formState.address"
             />
@@ -299,6 +300,29 @@ function handlePostGarage() {
   .register-form-cta {
     display: flex;
     flex-wrap: wrap;
+  }
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-size: 14px;
+  }
+  .register-form-section--top {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-section label {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .main-section :deep(.p-inputtext) {
+    font-size: 12px;
+  }
+  .map-container {
+    width: 100%;
+    aspect-ratio: initial;
+    min-height: 320px;
   }
 }
 </style>

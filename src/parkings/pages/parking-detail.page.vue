@@ -73,6 +73,19 @@ parkingService
   .catch(console.error)
   .finally(() => (loading.value = false))
 
+const carouselResponsiveOptions = [
+  {
+    breakpoint: '1080px',
+    numVisible: 2,
+    numScroll: 2
+  },
+  {
+    breakpoint: '768px',
+    numVisible: 1,
+    numScroll: 1
+  }
+]
+
 console.log(parking.value)
 </script>
 
@@ -98,6 +111,7 @@ console.log(parking.value)
           :value="parkingImages"
           :num-visible="3"
           :num-scroll="1"
+          :responsive-options="carouselResponsiveOptions"
           circular
           class="parking-carousel-images"
         >
@@ -118,13 +132,15 @@ console.log(parking.value)
             <p>Max capacity: {{ parking.max_capacity }} spaces</p>
             <p>Available spaces: 2 spaces</p>
           </pv-fieldset>
-          <div class="parking-cta-container">
-            <pv-button class="parking-reviews-btn">
-              <span class="parking-review-btn-label">Ratings & Reviews &rarr;</span>
-              <span class="parking-reviews-btn-rate">{{ parking.rating }}/5</span>
-            </pv-button>
-            <p class="parking-fare">Price: S/. {{ parking.price_per_hour }} / hour</p>
-            <pv-button label="Reserve now" class="parking-reserve-btn" severity="contrast" />
+          <div class="parking-cta-wrapper">
+            <div class="parking-cta-container">
+              <pv-button class="parking-reviews-btn">
+                <span class="parking-review-btn-label">Ratings & Reviews &rarr;</span>
+                <span class="parking-reviews-btn-rate">{{ parking.rating }}/5</span>
+              </pv-button>
+              <p class="parking-fare">Price: S/. {{ parking.price_per_hour }} / hour</p>
+              <pv-button label="Reserve now" class="parking-reserve-btn" severity="contrast" />
+            </div>
           </div>
         </div>
       </template>
@@ -312,5 +328,86 @@ console.log(parking.value)
 }
 .return-btn :deep(.p-button-label) {
   font-family: 'Mulish', sans-serif;
+}
+
+@media screen and (max-width: 1080px) {
+  .parking-detail-address {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .parking-detail-complement {
+    font-size: 14px;
+  }
+  .parking-info-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'description dimensions'
+      'cta cta';
+    row-gap: 12px;
+  }
+  .parking-description-fieldset {
+    grid-area: description;
+    font-size: 14px;
+  }
+  .parking-dimensions-fieldset {
+    grid-area: dimensions;
+    font-size: 14px;
+  }
+  .parking-cta-wrapper {
+    grid-area: cta;
+  }
+  .parking-cta-container {
+    grid-area: cta;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 12px;
+  }
+  .parking-reviews-btn {
+    padding-block: 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: fit-content;
+    padding-inline: 12px;
+  }
+  .parking-review-btn-label,
+  .parking-reviews-btn-rate {
+    font-size: 14px;
+    text-wrap: nowrap;
+  }
+  .parking-fare {
+    font-size: 14px;
+    flex-basis: initial;
+  }
+  .parking-reserve-btn {
+    flex-shrink: 0;
+    font-size: 14px;
+    flex-shrink: initial;
+    padding-block: 8px;
+    padding-inline: 12px;
+    width: fit-content;
+  }
+  .not-found-img {
+    width: 160px;
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .not-found-icon {
+    font-size: 64px;
+  }
+  .not-found-title {
+    font-size: 24px;
+  }
+  .not-found-description {
+    font-size: 14px;
+  }
+  .loading-icon {
+    font-size: 64px;
+  }
+  .loading-complement {
+    font-size: 16px;
+  }
 }
 </style>

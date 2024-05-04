@@ -28,6 +28,7 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
 .view-container {
   width: 100%;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   padding-block: 2rem;
   padding-inline: 3.5rem;
@@ -35,8 +36,8 @@ import SidebarComponent from '@/public/components/sidebar.component.vue'
 
 @media screen and (max-width: 1080px) {
   .view-container {
-    padding-block: 1rem;
-    padding-inline: 1.25rem;
+    padding-block: 2rem;
+    padding-inline: 2rem;
   }
 }
 </style>
