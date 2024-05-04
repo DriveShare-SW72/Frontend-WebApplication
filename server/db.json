@@ -139,7 +139,7 @@
         "end_time": "20:00"
       },
       "phone": "111-222-3333",
-      "price_per_hour": 12.0,
+      "price_per_hour": 12,
       "description": "Parking lot with 10 spaces available",
       "rating": 4.2
     },
@@ -160,7 +160,7 @@
         "end_time": "18:00"
       },
       "phone": "555-666-7777",
-      "price_per_hour": 15.0,
+      "price_per_hour": 15,
       "description": "Parking garage with 20 spaces available",
       "rating": 4.5
     },
@@ -181,7 +181,7 @@
         "end_time": "22:00"
       },
       "phone": "888-999-0000",
-      "price_per_hour": 10.0,
+      "price_per_hour": 10,
       "description": "Open-air parking lot with 15 spaces available",
       "rating": 3.1
     },
@@ -223,7 +223,7 @@
         "end_time": "17:30"
       },
       "phone": "999-000-1111",
-      "price_per_hour": 18.0,
+      "price_per_hour": 18,
       "description": "Multi-level parking structure with 25 spaces available",
       "rating": 4.9
     },
@@ -265,7 +265,7 @@
         "end_time": "21:30"
       },
       "phone": "666-777-8888",
-      "price_per_hour": 11.0,
+      "price_per_hour": 11,
       "description": "Covered parking lot with 16 spaces available",
       "rating": 3.5
     },
@@ -286,7 +286,7 @@
         "end_time": "18:00"
       },
       "phone": "333-444-5555",
-      "price_per_hour": 16.0,
+      "price_per_hour": 16,
       "description": "Underground parking garage with 20 spaces available",
       "rating": 4.5
     },
@@ -307,7 +307,7 @@
         "end_time": "19:30"
       },
       "phone": "444-555-6666",
-      "price_per_hour": 13.0,
+      "price_per_hour": 13,
       "description": "Open-air parking lot with 15 spaces available",
       "rating": 4.9
     },
@@ -331,28 +331,189 @@
       "price_per_hour": 17.5,
       "description": "Multi-level parking structure with 25 spaces available",
       "rating": 3.6
+    },
+    {
+      "id": "e5be5acd-7afa-4553-be37-31a0f80beae0",
+      "owner_id": 1,
+      "address": "Av. Domingo Orué 520, Surquillo 15047, Peru",
+      "number": "520",
+      "city": "Surquillo",
+      "state": "Lima",
+      "dimensions": {
+        "width": "4",
+        "length": "3",
+        "height": "12"
+      },
+      "schedule": {
+        "start_time": "08:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-999-123",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0
+    },
+    {
+      "address": "Av Tomás Marsano 120, Surquillo 15048, Peru",
+      "spaces": 0,
+      "length": 0,
+      "width": 0,
+      "height": 0,
+      "startTime": "10:00",
+      "endTime": "20:00",
+      "phone": "999-999-991",
+      "fare": 0,
+      "description": "",
+      "id": 11
+    },
+    {
+      "id": "85c99439-8d6e-409a-8da8-6ab17ecd2381",
+      "owner_id": 1,
+      "address": "Av Tomás Marsano 240, Surquillo 15048, Peru",
+      "number": "240",
+      "city": "Surquillo",
+      "state": "Lima",
+      "dimensions": {
+        "width": "20",
+        "length": "20",
+        "height": "20"
+      },
+      "schedule": {
+        "start_time": "10:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-122-222",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0
     }
   ],
   "parkings-locations": [
-    { "id": 1, "lat": -12.1061161, "lng": -77.029217, "parking_id": 1 },
-    { "id": 2, "lat": -12.1067486, "lng": -77.0222729, "parking_id": 2 },
-    { "id": 3, "lat": -12.1050827, "lng": -77.01047, "parking_id": 3 },
-    { "id": 4, "lat": -12.1181284, "lng": -77.0095936, "parking_id": 4 },
-    { "id": 5, "lat": -12.0590779, "lng": -77.0449137, "parking_id": 5 },
-    { "id": 6, "lat": -12.0572243, "lng": -77.0402172, "parking_id": 6 },
-    { "id": 7, "lat": -12.0463731, "lng": -77.0369274, "parking_id": 7 },
-    { "id": 8, "lat": -12.0558897, "lng": -77.0369274, "parking_id": 8 },
-    { "id": 9, "lat": -12.0640885, "lng": -77.0303117, "parking_id": 9 },
-    { "id": 10, "lat": -12.0739478, "lng": -77.0283337, "parking_id": 10 },
-    { "id": 11, "lat": -12.0901234, "lng": -77.0256789, "parking_id": 11 },
-    { "id": 12, "lat": -12.0854321, "lng": -77.0354321, "parking_id": 12 },
-    { "id": 13, "lat": -12.0809876, "lng": -77.0456789, "parking_id": 13 },
-    { "id": 14, "lat": -12.0754321, "lng": -77.0554321, "parking_id": 14 },
-    { "id": 15, "lat": -12.0709876, "lng": -77.0656789, "parking_id": 15 },
-    { "id": 16, "lat": -12.0654321, "lng": -77.0754321, "parking_id": 16 },
-    { "id": 17, "lat": -12.0609876, "lng": -77.0856789, "parking_id": 17 },
-    { "id": 18, "lat": -12.0554321, "lng": -77.0954321, "parking_id": 18 },
-    { "id": 19, "lat": -12.0509876, "lng": -77.1056789, "parking_id": 19 },
-    { "id": 20, "lat": -12.0454321, "lng": -77.1154321, "parking_id": 20 }
+    {
+      "id": 1,
+      "lat": -12.1061161,
+      "lng": -77.029217,
+      "parking_id": 1
+    },
+    {
+      "id": 2,
+      "lat": -12.1067486,
+      "lng": -77.0222729,
+      "parking_id": 2
+    },
+    {
+      "id": 3,
+      "lat": -12.1050827,
+      "lng": -77.01047,
+      "parking_id": 3
+    },
+    {
+      "id": 4,
+      "lat": -12.1181284,
+      "lng": -77.0095936,
+      "parking_id": 4
+    },
+    {
+      "id": 5,
+      "lat": -12.0590779,
+      "lng": -77.0449137,
+      "parking_id": 5
+    },
+    {
+      "id": 6,
+      "lat": -12.0572243,
+      "lng": -77.0402172,
+      "parking_id": 6
+    },
+    {
+      "id": 7,
+      "lat": -12.0463731,
+      "lng": -77.0369274,
+      "parking_id": 7
+    },
+    {
+      "id": 8,
+      "lat": -12.0558897,
+      "lng": -77.0369274,
+      "parking_id": 8
+    },
+    {
+      "id": 9,
+      "lat": -12.0640885,
+      "lng": -77.0303117,
+      "parking_id": 9
+    },
+    {
+      "id": 10,
+      "lat": -12.0739478,
+      "lng": -77.0283337,
+      "parking_id": 10
+    },
+    {
+      "id": 11,
+      "lat": -12.0901234,
+      "lng": -77.0256789,
+      "parking_id": 11
+    },
+    {
+      "id": 12,
+      "lat": -12.0854321,
+      "lng": -77.0354321,
+      "parking_id": 12
+    },
+    {
+      "id": 13,
+      "lat": -12.0809876,
+      "lng": -77.0456789,
+      "parking_id": 13
+    },
+    {
+      "id": 14,
+      "lat": -12.0754321,
+      "lng": -77.0554321,
+      "parking_id": 14
+    },
+    {
+      "id": 15,
+      "lat": -12.0709876,
+      "lng": -77.0656789,
+      "parking_id": 15
+    },
+    {
+      "id": 16,
+      "lat": -12.0654321,
+      "lng": -77.0754321,
+      "parking_id": 16
+    },
+    {
+      "id": 17,
+      "lat": -12.0609876,
+      "lng": -77.0856789,
+      "parking_id": 17
+    },
+    {
+      "id": 18,
+      "lat": -12.0554321,
+      "lng": -77.0954321,
+      "parking_id": 18
+    },
+    {
+      "id": 19,
+      "lat": -12.0509876,
+      "lng": -77.1056789,
+      "parking_id": 19
+    },
+    {
+      "id": 20,
+      "lat": -12.0454321,
+      "lng": -77.1154321,
+      "parking_id": 20
+    },
+    {
+      "id": "bc754e7c-aad0-4bef-8edf-e570c6eb467f",
+      "lat": -12.10602,
+      "lng": -77.017647,
+      "parking_id": "85c99439-8d6e-409a-8da8-6ab17ecd2381"
+    }
   ]
 }

@@ -42,6 +42,23 @@ class ParkingApiService {
       console.error(err)
     }
   }
+
+  async postParking({ lat, lng, ...restParking }) {
+    try {
+      await this.axiosInstance.post('/parkings', restParking)
+
+      const location = {
+        id: crypto.randomUUID(),
+        lat,
+        lng,
+        parking_id: restParking.id
+      }
+
+      await this.axiosInstance.post('/parkings-locations', location)
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }
 
 export default ParkingApiService

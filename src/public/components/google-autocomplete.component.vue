@@ -12,8 +12,8 @@ async function initAutocomplete() {
     const { Autocomplete } = await window.google.maps.importLibrary('places')
 
     const autocomplete = new Autocomplete(inputRef.value, {
-      componentRestrictions: { country: 'pe' },
-      fields: ['geometry']
+      componentRestrictions: { country: 'pe' }
+      // fields: ['geometry', 'address_components']
     })
 
     autocomplete.addListener('place_changed', () => {
