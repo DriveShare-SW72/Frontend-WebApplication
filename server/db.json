@@ -354,23 +354,10 @@
       "rating": 0
     },
     {
-      "address": "Av Tomás Marsano 120, Surquillo 15048, Peru",
-      "spaces": 0,
-      "length": 0,
-      "width": 0,
-      "height": 0,
-      "startTime": "10:00",
-      "endTime": "20:00",
-      "phone": "999-999-991",
-      "fare": 0,
-      "description": "",
-      "id": 11
-    },
-    {
-      "id": "85c99439-8d6e-409a-8da8-6ab17ecd2381",
+      "id": 195,
       "owner_id": 1,
-      "address": "Av Tomás Marsano 240, Surquillo 15048, Peru",
-      "number": "240",
+      "address": "Av Tomás Marsano 120, Surquillo 15048, Peru",
+      "number": "120",
       "city": "Surquillo",
       "state": "Lima",
       "dimensions": {
@@ -382,7 +369,28 @@
         "start_time": "10:00",
         "end_time": "20:00"
       },
-      "phone": "999-122-222",
+      "phone": "999-999-999",
+      "price_per_hour": 0,
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 475,
+      "owner_id": 1,
+      "address": "Av Tomás Marsano 250, Surquillo 15048, Peru",
+      "number": "250",
+      "city": "Surquillo",
+      "state": "Lima",
+      "dimensions": {
+        "width": "20",
+        "length": "20",
+        "height": "20"
+      },
+      "schedule": {
+        "start_time": "10:00",
+        "end_time": "18:00"
+      },
+      "phone": "984-782-999",
       "price_per_hour": 0,
       "description": "",
       "rating": 0
@@ -510,10 +518,16 @@
       "parking_id": 20
     },
     {
-      "id": "bc754e7c-aad0-4bef-8edf-e570c6eb467f",
-      "lat": -12.10602,
-      "lng": -77.017647,
-      "parking_id": "85c99439-8d6e-409a-8da8-6ab17ecd2381"
+      "id": 264,
+      "lat": -12.1052455,
+      "lng": -77.0182505,
+      "parking_id": 195
+    },
+    {
+      "id": 579,
+      "lat": -12.1062398,
+      "lng": -77.01751569999999,
+      "parking_id": 475
     }
   ]
 }

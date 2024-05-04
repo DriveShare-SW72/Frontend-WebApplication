@@ -73,7 +73,7 @@ function handleAutocompletePlaceChanged(place) {
 function handlePostGarage() {
   if (!formState.address) return
   const parkingDTOPost = {
-    id: crypto.randomUUID(),
+    id: Math.floor(Math.random() * (1000 - 20 + 1)) + 20,
     owner_id: 1,
     address: formState.address,
     number: formState.streetNumber,

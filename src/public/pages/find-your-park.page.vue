@@ -31,7 +31,7 @@ parkingService
   .catch(console.error)
 
 function handleMarkerClick(marker) {
-  router.push(`/find-your-park/parking/${marker.id}`)
+  router.push(`/find-your-park/parking/${marker.parking_id}`)
 }
 
 /** @param {google.maps.places.PlaceResult} place */

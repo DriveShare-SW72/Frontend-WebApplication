@@ -48,7 +48,7 @@ class ParkingApiService {
       await this.axiosInstance.post('/parkings', restParking)
 
       const location = {
-        id: crypto.randomUUID(),
+        id: Math.floor(Math.random() * (1000 - 20 + 1)) + 20,
         lat,
         lng,
         parking_id: restParking.id
