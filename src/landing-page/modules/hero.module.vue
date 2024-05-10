@@ -20,7 +20,7 @@ import HeroIllustration from '@/assets/svg/hero-illustration.svg?component'
             <span class="font-rubik">tiempo</span>
           </h1>
           <h2 class="font-rubik hero-subtitle">
-            Encuentra fácilmente estacionamiento desde la comodidad de tu dispositivo
+            {{ $t('landingPage.hero.subtitle') }}
           </h2>
           <router-link to="/login">
             <v-button>Conocer más</v-button>

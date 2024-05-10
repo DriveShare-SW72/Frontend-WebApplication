@@ -490,6 +490,48 @@
       "price_per_hour": 0,
       "description": "",
       "rating": 0
+    },
+    {
+      "id": 607,
+      "owner_id": 1,
+      "address": "Av Tomás Marsano 200, Surquillo 15048, Peru",
+      "number": "200",
+      "city": "Surquillo",
+      "state": "Lima",
+      "dimensions": {
+        "width": "20",
+        "length": "20",
+        "height": "20"
+      },
+      "schedule": {
+        "start_time": "12:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-999-999",
+      "price_per_hour": "S/ 12.00",
+      "description": "",
+      "rating": 0
+    },
+    {
+      "id": 904,
+      "owner_id": 1,
+      "address": "I, Prolongación Primavera 2390, Santiago de Surco 15023, Peru",
+      "number": "2390",
+      "city": "Santiago de Surco",
+      "state": "Lima",
+      "dimensions": {
+        "width": "20",
+        "length": "20",
+        "height": "20"
+      },
+      "schedule": {
+        "start_time": "10:00",
+        "end_time": "20:00"
+      },
+      "phone": "999-999-999",
+      "price_per_hour": "S/ 10.00",
+      "description": "",
+      "rating": 0
     }
   ],
   "parkings-locations": [
@@ -654,6 +696,18 @@
       "lat": -12.0627321,
       "lng": -77.0261568,
       "parking_id": 508
+    },
+    {
+      "id": 336,
+      "lat": -12.1062741,
+      "lng": -77.0169702,
+      "parking_id": 607
+    },
+    {
+      "id": 485,
+      "lat": -12.1040542,
+      "lng": -76.9629057,
+      "parking_id": 904
     }
   ]
 }
