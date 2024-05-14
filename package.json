@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "server": "json-server --watch server/db.json --routes server/routes.json"
+    "server": "json-server --watch server/db.json --routes server/routes.json",
+    "dev:server": "concurrently \"vite\" \"npm:server\""
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.6",
@@ -30,6 +31,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/eslint-config-prettier": "^9.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "prettier": "^3.2.5",

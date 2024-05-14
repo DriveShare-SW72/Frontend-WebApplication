@@ -7,7 +7,8 @@ export default {
 <script setup>
 import VButton from './button.component.vue'
 import VLogo from './logo.component.vue'
-const navlinks = [
+import VLanguageSwitcher from '@/public/components/language-switcher.component.vue'
+const navLinks = [
   {
     title: 'Producto',
     href: '#product'
@@ -36,10 +37,11 @@ const navlinks = [
     <nav class="navbar">
       <div class="navbar--left">
         <v-logo type="normal" />
+        <v-language-switcher />
       </div>
       <div class="navbar--right">
         <ul class="navbar--right__navlinks">
-          <li v-for="navlink of navlinks" :key="navlink.href">
+          <li v-for="navlink of navLinks" :key="navlink.href">
             <a class="navlink" :href="navlink.href">{{ navlink.title }}</a>
           </li>
         </ul>
@@ -73,6 +75,11 @@ const navlinks = [
   height: 24px;
   width: 1px;
   background: var(--color-primary-500);
+}
+.navbar--left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .navbar--right {
   display: flex;
