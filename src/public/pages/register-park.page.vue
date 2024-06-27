@@ -11,6 +11,7 @@ import { MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM } from '@/constants'
 import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useParkings } from '@/store/parkings'
+import { useAuth } from '@/store/auth'
 
 export default {
   name: 'register-park-page',
@@ -27,6 +28,9 @@ export default {
     const map = ref(null)
     const router = useRouter()
     const parkingStore = useParkings()
+    const authStore = useAuth()
+
+    console.log('USER', authStore.user)
 
     const formState = reactive({
       address: '',
@@ -83,24 +87,19 @@ export default {
     function handlePostGarage() {
       if (!formState.address) return
       const parkingDTOPost = {
-        owner_id: 1,
+        owner_id: authStore.user.id?.toString?.(),
+        description: formState.description,
         address: formState.address,
-        number: formState.streetNumber,
+        address_number: formState.streetNumber,
         city: formState.city,
-        state: formState.state,
-        dimensions: {
-          width: formState.width,
-          length: formState.length,
-          height: formState.height
-        },
+        state: 'AVAILABLE',
+        phone_service: formState.phone,
+        price_per_hour: parseFloat(formState.fare.replace('S/ ', '')),
+        location: 1,
         schedule: {
           start_time: formState.startTime,
           end_time: formState.endTime
         },
-        phone: formState.phone,
-        price_per_hour: formState.fare,
-        description: formState.description,
-        rating: 0,
         lat: formState.lat,
         lng: formState.lng
       }
@@ -109,7 +108,6 @@ export default {
       parkingStore
         .createParking(parkingDTOPost)
         .then(() => {
-          loading.value = false
           router.push('/find-your-park')
         })
         .catch(console.error)
@@ -195,7 +193,7 @@ export default {
             </div>
             <div class="register-form-field register-form-field--description">
               <label for="description">Description</label>
-              <pv-input-text />
+              <pv-input-text v-model="formState.description" />
             </div>
             <div class="post-container">
               <i v-if="loading" class="pi pi-spin pi-spinner" />
