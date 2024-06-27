@@ -5,7 +5,7 @@ class ParkingApiService {
   axiosInstance
 
   constructor() {
-    const BASE_URL = 'http://3.14.129.158:8001/api/v1'
+    const BASE_URL = 'https://api-gateway-driveshare-qh7j.vercel.app/api/v1/'
 
     this.axiosInstance = axios.create({
       baseURL: BASE_URL,
