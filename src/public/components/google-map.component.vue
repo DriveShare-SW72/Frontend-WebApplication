@@ -30,8 +30,8 @@ async function renderMarkers(map) {
       const advancedMarker = new AdvancedMarkerElement({
         map,
         position: {
-          lat: marker.lat,
-          lng: marker.lng
+          lat: marker.latitude,
+          lng: marker.longitude
         }
       })
       advancedMarker.addListener('click', () => emits('clickMarker', marker))

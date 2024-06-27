@@ -41,7 +41,9 @@ export default {
     }
 
     const init = function () {
-      locationsStore.loadLocations()
+      locationsStore.loadLocations().then(() => {
+        console.log(locationsStore.locations)
+      })
     }
 
     init()

@@ -5,7 +5,7 @@ class ParkingApiService {
   axiosInstance
 
   constructor() {
-    const BASE_URL = 'http://localhost:3000/api/v1'
+    const BASE_URL = 'http://3.14.129.158:8001/api/v1'
 
     this.axiosInstance = axios.create({
       baseURL: BASE_URL,
@@ -27,7 +27,7 @@ class ParkingApiService {
 
   async getParkingsById(id) {
     try {
-      const response = await this.axiosInstance.get(`/parkings?id=${id}`)
+      const response = await this.axiosInstance.get(`/parkings/${id}`)
       return response.data
     } catch (err) {
       console.error(err)
@@ -35,7 +35,8 @@ class ParkingApiService {
   }
 
   async getParkingsLocations() {
-    const response = await this.axiosInstance.get('/parkings-locations')
+    const response = await this.axiosInstance.get('/geocoordinates')
+
     return response.data
   }
 
