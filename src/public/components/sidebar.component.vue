@@ -48,6 +48,12 @@ const visible = ref(false)
           <span>History</span>
         </router-link>
       </div>
+      <div class="sidebar-item">
+        <router-link class="nav-link" to="/your-reservations" active-class="nav-link--active">
+          <i class="" />
+          <span>Your reservations</span>
+        </router-link>
+      </div>
     </div>
     <div class="sign-out-container">
       <div class="sidebar-item">

@@ -8,6 +8,7 @@ import ParkingDetailPage from '@/parkings/pages/parking-detail.page.vue'
 import RegisterPark from '@/public/pages/register-park.page.vue'
 import NotFoundPage from '@/public/pages/not-found.page.vue'
 import { useAuth } from '@/store/auth'
+import YourReservationsPage from '@/public/pages/your-reservations.page.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -57,6 +58,13 @@ const router = createRouter({
     {
       path: '/register-park',
       component: RegisterPark,
+      meta: {
+        auth: true
+      }
+    },
+    {
+      path: '/your-reservations',
+      component: YourReservationsPage,
       meta: {
         auth: true
       }
