@@ -7,43 +7,75 @@ import FindYourParkPage from '@/public/pages/find-your-park.page.vue'
 import ParkingDetailPage from '@/parkings/pages/parking-detail.page.vue'
 import RegisterPark from '@/public/pages/register-park.page.vue'
 import NotFoundPage from '@/public/pages/not-found.page.vue'
+import { useAuth } from '@/store/auth'
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      component: LandingPage
+      component: LandingPage,
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/login',
-      component: LogInPage
+      component: LogInPage,
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/signup',
-      component: SignUpPage
+      component: SignUpPage,
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/recovery',
-      component: RecoveryPage
+      component: RecoveryPage,
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/find-your-park',
-      component: FindYourParkPage
+      component: FindYourParkPage,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/find-your-park/parking/:id',
-      component: ParkingDetailPage
+      component: ParkingDetailPage,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/register-park',
-      component: RegisterPark
+      component: RegisterPark,
+      meta: {
+        auth: true
+      }
     },
     {
       path: '/:pathMatch(.*)*',
-      component: NotFoundPage
+      component: NotFoundPage,
+      meta: {
+        auth: false
+      }
     }
   ]
+})
+
+router.beforeEach((to, _from, next) => {
+  if (to.meta.auth && !useAuth().isLoggedIn()) {
+    next('/login')
+  }
+  next()
 })
 
 export default router

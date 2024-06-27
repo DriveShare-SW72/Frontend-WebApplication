@@ -1,10 +1,4 @@
 <script>
-export default {
-  name: 'register-park-page'
-}
-</script>
-
-<script setup>
 import VBaseLayout from '@/public/layout/base.layout.vue'
 import VGoogleAutocomplete from '@/public/components/google-autocomplete.component.vue'
 import VGoogleMap from '../components/google-map.component.vue'
@@ -12,113 +6,128 @@ import PvInputText from 'primevue/inputtext'
 import PvInputMask from 'primevue/inputmask'
 import PvButton from 'primevue/button'
 import PvDivider from 'primevue/divider'
+import { MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM } from '@/constants'
+
 import { reactive, ref } from 'vue'
-import ParkingApiService from '@/parkings/services/parkingApi.service'
 import { useRouter } from 'vue-router'
+import { useParkings } from '@/store/parkings'
 
-const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
-const MAP_DEFAULT_ZOOM = 18
+export default {
+  name: 'register-park-page',
+  components: {
+    VBaseLayout,
+    VGoogleAutocomplete,
+    VGoogleMap,
+    PvInputText,
+    PvInputMask,
+    PvButton,
+    PvDivider
+  },
+  setup() {
+    const map = ref(null)
+    const router = useRouter()
+    const parkingStore = useParkings()
 
-const map = ref(null)
-const parkingService = new ParkingApiService()
-const router = useRouter()
+    const formState = reactive({
+      address: '',
+      streetNumber: '',
+      lat: 0,
+      lng: 0,
+      city: '',
+      state: '',
+      spaces: 0,
+      length: 0,
+      width: 0,
+      height: 0,
+      startTime: '',
+      endTime: '',
+      phone: '',
+      fare: 0,
+      description: ''
+    })
 
-const formState = reactive({
-  address: '',
-  streetNumber: '',
-  lat: 0,
-  lng: 0,
-  city: '',
-  state: '',
-  spaces: 0,
-  length: 0,
-  width: 0,
-  height: 0,
-  startTime: '',
-  endTime: '',
-  phone: '',
-  fare: 0,
-  description: ''
-})
+    const loading = ref(false)
 
-const loading = ref(false)
+    /** @param {google.maps.places.PlaceResult} place */
+    function handleAutocompletePlaceChanged(place) {
+      const {
+        geometry: { location },
+        formatted_address,
+        address_components
+      } = place
 
-/** @param {google.maps.places.PlaceResult} place */
-function handleAutocompletePlaceChanged(place) {
-  const {
-    geometry: { location },
-    formatted_address,
-    address_components
-  } = place
+      console.log('[ADDRESS-COMPONENT]', address_components)
 
-  console.log('[ADDRESS-COMPONENT]', address_components)
-
-  address_components.forEach((component) => {
-    if (component.types.includes('street_number')) {
-      formState.streetNumber = component.long_name
-    }
-    if (component.types.includes('locality')) {
-      formState.city = component.long_name
-    }
-    if (component.types.includes('administrative_area_level_2')) {
-      formState.state = component.long_name
-    }
-  })
-
-  formState.address = formatted_address
-
-  if (!location) return
-  map.value.panTo(location)
-  map.value.setZoom(18)
-
-  formState.lat = location.lat()
-  formState.lng = location.lng()
-}
-
-function handlePostGarage() {
-  if (!formState.address) return
-  const parkingDTOPost = {
-    id: Math.floor(Math.random() * (1000 - 20 + 1)) + 20,
-    owner_id: 1,
-    address: formState.address,
-    number: formState.streetNumber,
-    city: formState.city,
-    state: formState.state,
-    dimensions: {
-      width: formState.width,
-      length: formState.length,
-      height: formState.height
-    },
-    schedule: {
-      start_time: formState.startTime,
-      end_time: formState.endTime
-    },
-    phone: formState.phone,
-    price_per_hour: formState.fare,
-    description: formState.description,
-    rating: 0,
-    lat: formState.lat,
-    lng: formState.lng
-  }
-
-  loading.value = true
-  parkingService
-    .postParking(parkingDTOPost)
-    .then(() => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve()
-        }, 2000)
+      address_components.forEach((component) => {
+        if (component.types.includes('street_number')) {
+          formState.streetNumber = component.long_name
+        }
+        if (component.types.includes('locality')) {
+          formState.city = component.long_name
+        }
+        if (component.types.includes('administrative_area_level_2')) {
+          formState.state = component.long_name
+        }
       })
-    })
-    .then(() => {
-      loading.value = false
-    })
-    .finally(() => {
-      setTimeout(() => {
-        router.push('/find-your-park')
-      }, 1000)
-    })
+
+      formState.address = formatted_address
+
+      if (!location) return
+      map.value.panTo(location)
+      map.value.setZoom(18)
+
+      formState.lat = location.lat()
+      formState.lng = location.lng()
+    }
+
+    function handlePostGarage() {
+      if (!formState.address) return
+      const parkingDTOPost = {
+        owner_id: 1,
+        address: formState.address,
+        number: formState.streetNumber,
+        city: formState.city,
+        state: formState.state,
+        dimensions: {
+          width: formState.width,
+          length: formState.length,
+          height: formState.height
+        },
+        schedule: {
+          start_time: formState.startTime,
+          end_time: formState.endTime
+        },
+        phone: formState.phone,
+        price_per_hour: formState.fare,
+        description: formState.description,
+        rating: 0,
+        lat: formState.lat,
+        lng: formState.lng
+      }
+
+      loading.value = true
+      parkingStore
+        .createParking(parkingDTOPost)
+        .then(() => {
+          loading.value = false
+          router.push('/find-your-park')
+        })
+        .catch(console.error)
+        .finally(() => {
+          loading.value = false
+        })
+    }
+
+    return {
+      formState,
+      handleAutocompletePlaceChanged,
+      handlePostGarage,
+      loading,
+      map,
+      MAP_DEFAULT_CENTER,
+      MAP_DEFAULT_ZOOM
+    }
+  }
 }
 </script>
 

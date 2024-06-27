@@ -35,26 +35,24 @@ class ParkingApiService {
   }
 
   async getParkingsLocations() {
-    try {
-      const response = await this.axiosInstance.get('/parkings-locations')
-      return response.data
-    } catch (err) {
-      console.error(err)
-    }
+    const response = await this.axiosInstance.get('/parkings-locations')
+    return response.data
   }
 
   async postParking({ lat, lng, ...restParking }) {
     try {
-      await this.axiosInstance.post('/parkings', restParking)
+      const parking = await this.axiosInstance.post('/parkings', restParking)
 
-      const location = {
+      console.log(parking)
+      const createLocationDTO = {
         id: Math.floor(Math.random() * (1000 - 20 + 1)) + 20,
         lat,
         lng,
-        parking_id: restParking.id
+        parking_id: parking.data.id
       }
+      const location = await this.axiosInstance.post('/parkings-locations', createLocationDTO)
 
-      await this.axiosInstance.post('/parkings-locations', location)
+      return { parking: parking.data, location: location.data }
     } catch (err) {
       console.error(err)
     }

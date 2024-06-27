@@ -1,11 +1,4 @@
 <script>
-export default {
-  name: 'find-your-park-page'
-}
-</script>
-
-<script setup>
-import ParkingApiService from '@/parkings/services/parkingApi.service'
 import VBaseLayout from '@/public/layout/base.layout.vue'
 import VGoogleMap from '@/public/components/google-map.component.vue'
 import VGoogleAutocomplete from '@/public/components/google-autocomplete.component.vue'
@@ -13,45 +6,62 @@ import PvDropdown from 'primevue/dropdown'
 import PvButton from 'primevue/button'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useParkings } from '@/store/parkings'
 
-const MAP_DEFAULT_CENTER = { lat: -12.1061161, lng: -77.026921 }
-const MAP_DEFAULT_ZOOM = 18
+import { MAP_DEFAULT_CENTER, MAP_DEFAULT_ZOOM, RATING_OPTIONS, FARE_OPTIONS } from '@/constants'
 
-const parkingService = new ParkingApiService()
+export default {
+  name: 'find-your-park-page',
+  components: {
+    VBaseLayout,
+    VGoogleMap,
+    VGoogleAutocomplete,
+    PvDropdown,
+    PvButton
+  },
+  setup() {
+    const locationsStore = useParkings()
+    const router = useRouter()
 
-const locations = ref([])
-const router = useRouter()
-/** @type {import('vue').Ref<google.maps.Map>} */
-const map = ref(null)
+    /** @type {import('vue').Ref<google.maps.Map>} */
+    const map = ref(null)
+    const selectedFare = ref('')
+    const selectedRating = ref('')
 
-const selectedFare = ref('')
-const fareOptions = ref([
-  'S/5.00 - S/10.00',
-  'S/10.00 - S/15.00',
-  'S/15.00 - S/20.00',
-  'S/20.00 - more'
-])
+    const handleMarkerClick = function (marker) {
+      router.push(`/find-your-park/parking/${marker.parking_id}`)
+    }
 
-const selectedRating = ref('')
-const ratingOptions = ref(['1 star', '2 stars', '3 stars', '4 stars', '5 stars'])
+    /** @param {google.maps.places.PlaceResult} place */
+    const handleAutocompletePlaceChanged = function (place) {
+      const { location } = place.geometry
+      if (!location) return
+      map.value.panTo(location)
+      map.value.setZoom(18)
+    }
 
-parkingService
-  .getParkingsLocations()
-  .then((data) => (locations.value = data))
-  .catch(console.error)
+    const init = function () {
+      locationsStore.loadLocations()
+    }
 
-function handleMarkerClick(marker) {
-  router.push(`/find-your-park/parking/${marker.parking_id}`)
-}
+    init()
 
-/** @param {google.maps.places.PlaceResult} place */
-function handleAutocompletePlaceChanged(place) {
-  const { location } = place.geometry
-  if (!location) return
-  map.value.panTo(location)
-  map.value.setZoom(18)
+    return {
+      MAP_DEFAULT_CENTER,
+      MAP_DEFAULT_ZOOM,
+      RATING_OPTIONS,
+      FARE_OPTIONS,
+      selectedFare,
+      selectedRating,
+      handleMarkerClick,
+      handleAutocompletePlaceChanged,
+      map,
+      locationsStore
+    }
+  }
 }
 </script>
+
 <template>
   <v-base-layout>
     <section class="main-section">
@@ -73,13 +83,13 @@ function handleAutocompletePlaceChanged(place) {
               class="search-dropdown"
               placeholder="Filter by fare"
               v-model="selectedFare"
-              :options="fareOptions"
+              :options="FARE_OPTIONS"
             />
             <pv-dropdown
               class="search-dropdown"
               placeholder="Filter by rating"
               v-model="selectedRating"
-              :options="ratingOptions"
+              :options="RATING_OPTIONS"
             />
           </div>
 
@@ -90,7 +100,7 @@ function handleAutocompletePlaceChanged(place) {
         <v-google-map
           :center="MAP_DEFAULT_CENTER"
           :zoom="MAP_DEFAULT_ZOOM"
-          :markers="locations"
+          :markers="locationsStore.locations"
           @clickMarker="handleMarkerClick"
           v-model:map="map"
         />
